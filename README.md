@@ -43,7 +43,7 @@ If included, will be added as a title for the comment produced.
 ## Example usage
 
 ```yml
-uses: romeovs/lcov-reporter-action@v0.2.16
+uses: stauersbol/lcov-reporter-action@master
 with:
   lcov-file: ./coverage/lcov.info
 ```
