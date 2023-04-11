@@ -23054,6 +23054,12 @@ async function getChangedFiles(githubClient, options, context) {
 
 const REQUESTED_COMMENTS_PER_PAGE = 20;
 
+/**
+ * Deletes old comments that exists.
+ * @param {GitHub} github
+ * @param {*} options
+ * @param {Context} context
+ */
 async function deleteOldComments(github, options, context) {
 	const existingComments = await getExistingComments(github, options, context);
 	for (const comment of existingComments) {
@@ -23070,6 +23076,13 @@ async function deleteOldComments(github, options, context) {
 	}
 }
 
+/**
+ * Gets all existing comments.
+ * @param {GitHub} github
+ * @param {*} options
+ * @param {Context} context
+ * @returns
+ */
 async function getExistingComments(github, options, context) {
 	let page = 0;
 	let results = [];
@@ -23099,7 +23112,7 @@ const MAX_COMMENT_CHARS = 65536;
 async function main$1() {
 	const token = core$1.getInput("github-token");
 	const githubClient = new github_2(token);
-	const workingDir = core$1.getInput('working-directory') || './';	
+	const workingDir = core$1.getInput('working-directory') || './';
 	const lcovFile = path.join(workingDir, core$1.getInput("lcov-file") || "./coverage/lcov.info");
 	const baseFile = core$1.getInput("lcov-base");
 	const shouldFilterChangedFiles =
@@ -23148,11 +23161,10 @@ async function main$1() {
 	const baselcov = baseRaw && (await parse$2(baseRaw));
 	const body = diff(lcov, baselcov, options).substring(0, MAX_COMMENT_CHARS);
 
-	if (shouldDeleteOldComments) {
-		await deleteOldComments(githubClient, options, github_1);
-	}
-
 	if (github_1.eventName === "pull_request") {
+		if (shouldDeleteOldComments) {
+			await deleteOldComments(githubClient, options, github_1);
+		}
 		await githubClient.issues.createComment({
 			repo: github_1.repo.repo,
 			owner: github_1.repo.owner,
@@ -23169,7 +23181,7 @@ async function main$1() {
 	}
 }
 
-main$1().catch(function(err) {
+main$1().catch(function (err) {
 	console.log(err);
 	core$1.setFailed(err.message);
 });
