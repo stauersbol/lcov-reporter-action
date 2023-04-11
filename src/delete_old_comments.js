@@ -1,7 +1,15 @@
 import * as core from "@actions/core"
+import { GitHub } from "@actions/github"
+import { Context } from "@actions/github/lib/context"
 
 const REQUESTED_COMMENTS_PER_PAGE = 20
 
+/**
+ * Deletes old comments that exists.
+ * @param {GitHub} github
+ * @param {*} options
+ * @param {Context} context
+ */
 export async function deleteOldComments(github, options, context) {
 	const existingComments = await getExistingComments(github, options, context)
 	for (const comment of existingComments) {
@@ -18,6 +26,13 @@ export async function deleteOldComments(github, options, context) {
 	}
 }
 
+/**
+ * Gets all existing comments.
+ * @param {GitHub} github
+ * @param {*} options
+ * @param {Context} context
+ * @returns
+ */
 async function getExistingComments(github, options, context) {
 	let page = 0
 	let results = []
