@@ -1,19 +1,34 @@
 'use strict';
 
-var require$$0$1 = require('node:fs');
-var require$$0 = require('node:os');
-var path$1 = require('node:path');
-var require$$2$1 = require('node:http');
-var require$$3 = require('node:https');
-require('node:net');
-var require$$1$1 = require('node:tls');
-var require$$4 = require('node:events');
-require('node:assert');
-var require$$6 = require('node:util');
-var require$$0$3 = require('node:stream');
-var require$$2$2 = require('node:url');
-var require$$0$2 = require('node:punycode');
-var require$$5 = require('node:zlib');
+var require$$0$1 = require('fs');
+var require$$0 = require('os');
+var path$1 = require('path');
+var require$$2$1 = require('http');
+var require$$3 = require('https');
+require('net');
+var require$$1$1 = require('tls');
+var require$$4 = require('events');
+require('assert');
+var require$$6 = require('util');
+var require$$0$3 = require('stream');
+var require$$2$2 = require('url');
+var require$$0$2 = require('punycode');
+var require$$5 = require('zlib');
+
+function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+
+var require$$0__default$1 = /*#__PURE__*/_interopDefaultLegacy(require$$0$1);
+var require$$0__default = /*#__PURE__*/_interopDefaultLegacy(require$$0);
+var path__default = /*#__PURE__*/_interopDefaultLegacy(path$1);
+var require$$2__default = /*#__PURE__*/_interopDefaultLegacy(require$$2$1);
+var require$$3__default = /*#__PURE__*/_interopDefaultLegacy(require$$3);
+var require$$1__default = /*#__PURE__*/_interopDefaultLegacy(require$$1$1);
+var require$$4__default = /*#__PURE__*/_interopDefaultLegacy(require$$4);
+var require$$6__default = /*#__PURE__*/_interopDefaultLegacy(require$$6);
+var require$$0__default$3 = /*#__PURE__*/_interopDefaultLegacy(require$$0$3);
+var require$$2__default$1 = /*#__PURE__*/_interopDefaultLegacy(require$$2$2);
+var require$$0__default$2 = /*#__PURE__*/_interopDefaultLegacy(require$$0$2);
+var require$$5__default = /*#__PURE__*/_interopDefaultLegacy(require$$5);
 
 var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
@@ -112,7 +127,7 @@ var __importStar$3 = (commonjsGlobal && commonjsGlobal.__importStar) || function
 };
 Object.defineProperty(command, "__esModule", { value: true });
 command.issue = command.issueCommand = void 0;
-const os$1 = __importStar$3(require$$0);
+const os$1 = __importStar$3(require$$0__default["default"]);
 const utils_1$2 = utils$3;
 /**
  * Commands
@@ -771,15 +786,15 @@ function version(uuid) {
 
 var esmBrowser = /*#__PURE__*/Object.freeze({
 	__proto__: null,
-	NIL: nil,
-	parse: parse$3,
-	stringify: stringify,
 	v1: v1,
 	v3: v3$1,
 	v4: v4,
 	v5: v5$1,
+	NIL: nil,
+	version: version,
 	validate: validate,
-	version: version
+	stringify: stringify,
+	parse: parse$3
 });
 
 var require$$2 = /*@__PURE__*/getAugmentedNamespace(esmBrowser);
@@ -808,8 +823,8 @@ Object.defineProperty(fileCommand, "__esModule", { value: true });
 fileCommand.prepareKeyValueMessage = fileCommand.issueFileCommand = void 0;
 // We use any as a valid input type
 /* eslint-disable @typescript-eslint/no-explicit-any */
-const fs$1 = __importStar$2(require$$0$1);
-const os = __importStar$2(require$$0);
+const fs$1 = __importStar$2(require$$0__default$1["default"]);
+const os = __importStar$2(require$$0__default["default"]);
 const uuid_1 = require$$2;
 const utils_1$1 = utils$3;
 function issueFileCommand(command, message) {
@@ -930,11 +945,11 @@ function isLoopbackAddress(host) {
 
 var tunnel$1 = {};
 
-var tls = require$$1$1;
-var http = require$$2$1;
-var https = require$$3;
-var events = require$$4;
-var util = require$$6;
+var tls = require$$1__default["default"];
+var http = require$$2__default["default"];
+var https = require$$3__default["default"];
+var events = require$$4__default["default"];
+var util = require$$6__default["default"];
 
 
 tunnel$1.httpOverHttp = httpOverHttp;
@@ -1225,8 +1240,8 @@ var tunnel = tunnel$1;
 	};
 	Object.defineProperty(exports, "__esModule", { value: true });
 	exports.HttpClient = exports.isHttps = exports.HttpClientResponse = exports.HttpClientError = exports.getProxyUrl = exports.MediaTypes = exports.Headers = exports.HttpCodes = void 0;
-	const http = __importStar(require$$2$1);
-	const https = __importStar(require$$3);
+	const http = __importStar(require$$2__default["default"]);
+	const https = __importStar(require$$3__default["default"]);
 	const pm = __importStar(proxy);
 	const tunnel$1 = __importStar(tunnel);
 	var HttpCodes;
@@ -1998,8 +2013,8 @@ function requireSummary () {
 		};
 		Object.defineProperty(exports, "__esModule", { value: true });
 		exports.summary = exports.markdownSummary = exports.SUMMARY_DOCS_URL = exports.SUMMARY_ENV_VAR = void 0;
-		const os_1 = require$$0;
-		const fs_1 = require$$0$1;
+		const os_1 = require$$0__default["default"];
+		const fs_1 = require$$0__default$1["default"];
 		const { access, appendFile, writeFile } = fs_1.promises;
 		exports.SUMMARY_ENV_VAR = 'GITHUB_STEP_SUMMARY';
 		exports.SUMMARY_DOCS_URL = 'https://docs.github.com/actions/using-workflows/workflow-commands-for-github-actions#adding-a-job-summary';
@@ -2301,7 +2316,7 @@ function requirePathUtils () {
 	};
 	Object.defineProperty(pathUtils, "__esModule", { value: true });
 	pathUtils.toPlatformPath = pathUtils.toWin32Path = pathUtils.toPosixPath = void 0;
-	const path = __importStar(path$1);
+	const path = __importStar(path__default["default"]);
 	/**
 	 * toPosixPath converts the given path to the posix form. On Windows, \\ will be
 	 * replaced with /.
@@ -2379,8 +2394,8 @@ function requireCore () {
 		const command_1 = command;
 		const file_command_1 = fileCommand;
 		const utils_1 = utils$3;
-		const os = __importStar(require$$0);
-		const path = __importStar(path$1);
+		const os = __importStar(require$$0__default["default"]);
+		const path = __importStar(path__default["default"]);
 		const oidc_utils_1 = requireOidcUtils();
 		/**
 		 * The code to exit an action
@@ -2694,9 +2709,9 @@ var context$1 = {};
 
 Object.defineProperty(context$1, "__esModule", { value: true });
 context$1.Context = void 0;
-const fs_1 = require$$0$1;
-const os_1 = require$$0;
-let Context$1 = class Context {
+const fs_1 = require$$0__default$1["default"];
+const os_1 = require$$0__default["default"];
+class Context$1 {
     /**
      * Hydrate the context from the environment
      */
@@ -2742,7 +2757,7 @@ let Context$1 = class Context {
         }
         throw new Error("context.repo requires a GITHUB_REPOSITORY environment variable like 'owner/repo'");
     }
-};
+}
 context$1.Context = Context$1;
 
 var utils$2 = {};
@@ -3598,6 +3613,8 @@ conversions["RegExp"] = function (V, opts) {
 };
 
 var utils = {exports: {}};
+
+utils.exports;
 
 (function (module) {
 
@@ -81279,7 +81296,7 @@ var require$$1 = [
 	]
 ];
 
-var punycode = require$$0$2;
+var punycode = require$$0__default$2["default"];
 var mappingTable = require$$1;
 
 var PROCESSING_OPTIONS = {
@@ -81471,8 +81488,10 @@ tr46.toUnicode = function(domain_name, useSTD3) {
 
 tr46.PROCESSING_OPTIONS = PROCESSING_OPTIONS;
 
+urlStateMachine.exports;
+
 (function (module) {
-	const punycode = require$$0$2;
+	const punycode = require$$0__default$2["default"];
 	const tr46$1 = tr46;
 
 	const specialSchemes = {
@@ -82971,6 +82990,8 @@ URLImpl.implementation = class URLImpl {
   }
 };
 
+URL$1.exports;
+
 (function (module) {
 
 	const conversions = lib$1;
@@ -83180,18 +83201,20 @@ publicApi.serializeHost = urlStateMachineExports.serializeHost;
 publicApi.serializeInteger = urlStateMachineExports.serializeInteger;
 publicApi.parseURL = urlStateMachineExports.parseURL;
 
+lib$2.exports;
+
 (function (module, exports) {
 
 	Object.defineProperty(exports, '__esModule', { value: true });
 
 	function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-	var Stream = _interopDefault(require$$0$3);
-	var http = _interopDefault(require$$2$1);
-	var Url = _interopDefault(require$$2$2);
+	var Stream = _interopDefault(require$$0__default$3["default"]);
+	var http = _interopDefault(require$$2__default["default"]);
+	var Url = _interopDefault(require$$2__default$1["default"]);
 	var whatwgUrl = _interopDefault(publicApi);
-	var https = _interopDefault(require$$3);
-	var zlib = _interopDefault(require$$5);
+	var https = _interopDefault(require$$3__default["default"]);
+	var zlib = _interopDefault(require$$5__default["default"]);
 
 	// Based on https://github.com/tmpvar/jsdom/blob/aa85b2abf07766ff7bf5c1f6daafb3726f2f2db5/lib/jsdom/living/blob.js
 
@@ -87081,8 +87104,8 @@ Code licensed under the BSD License:
 http://yuilibrary.com/license/
 */
 
-var fs = require$$0$1,
-    path = path$1;
+var fs = require$$0__default$1["default"],
+    path = path__default["default"];
 
 /* istanbul ignore next */
 var exists = fs.exists || path.exists;
@@ -87272,7 +87295,7 @@ function createHref(options, file) {
 	const relative = file.file.replace(options.prefix, "");
 	const parts = relative.split("/");
 	const filename = parts[parts.length - 1];
-	const url = path$1.join(options.repository, 'blob', options.commit, options.workingDir || './', relative);
+	const url = path__default["default"].join(options.repository, 'blob', options.commit, options.workingDir || './', relative);
 	return {
 		href: `https://github.com/${url}`,
 		filename
@@ -87597,7 +87620,7 @@ async function main() {
 	const token = core.getInput("github-token");
 	const githubClient = getOctokit_1(token).rest;
 	const workingDir = core.getInput('working-directory') || './';
-	const lcovFile = path$1.join(workingDir, core.getInput("lcov-file") || "./coverage/lcov.info");
+	const lcovFile = path__default["default"].join(workingDir, core.getInput("lcov-file") || "./coverage/lcov.info");
 	const baseFile = core.getInput("lcov-base");
 	const shouldFilterChangedFiles =
 		core.getInput("filter-changed-files").toLowerCase() === "true";
