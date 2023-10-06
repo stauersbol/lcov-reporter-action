@@ -17,7 +17,11 @@ export function parse(data) {
 	})
 }
 
-// Get the total coverage percentage from the lcov data.
+/**
+ *
+ * @param {lcov.LcovFile[]} lcov
+ * @returns
+ */
 export function percentage(lcov) {
 	let hit = 0
 	let found = 0

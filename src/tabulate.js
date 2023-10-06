@@ -1,7 +1,13 @@
 import { th, tr, td, table, tbody, a, b, span, fragment } from "./html"
 import { createHref, normalisePath } from "./util"
+import { LcovFile } from "lcov-parse"
 
-// Tabulate the lcov data in a HTML table.
+/**
+ *
+ * @param {LcovFile[]} lcov
+ * @param {*} options
+ * @returns
+ */
 export function tabulate(lcov, options) {
 	const head = tr(
 		th("File"),
@@ -34,6 +40,12 @@ export function tabulate(lcov, options) {
 	return table(tbody(head, ...rows))
 }
 
+/**
+ *
+ * @param {LcovFile[]} lcov
+ * @param {*} options
+ * @returns
+ */
 function filterAndNormaliseLcov(lcov, options) {
 	return lcov
 		.map(file => ({
@@ -43,13 +55,22 @@ function filterAndNormaliseLcov(lcov, options) {
 		.filter(file => shouldBeIncluded(file.file, options))
 }
 
+/**
+ * @param {string} fileName
+ * @param {*} options
+ * @returns
+ */
 function shouldBeIncluded(fileName, options) {
 	if (!options.shouldFilterChangedFiles) {
 		return true
 	}
 	return options.changedFiles.includes(fileName.replace(options.prefix, ""))
 }
-
+/**
+ *
+ * @param {string} path
+ * @returns
+ */
 function toFolder(path) {
 	if (path === "") {
 		return ""

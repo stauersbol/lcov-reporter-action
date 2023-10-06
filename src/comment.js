@@ -2,7 +2,14 @@ import { details, summary, b, fragment, table, tbody, tr, th, h2 } from "./html"
 
 import { percentage } from "./lcov"
 import { tabulate } from "./tabulate"
+import { LcovFile } from "lcov-parse"
 
+/**
+ *
+ * @param {LcovFile[]} lcov
+ * @param {*} options
+ * @returns
+ */
 export function comment(lcov, options) {
 	return fragment(
 		options.title ? h2(options.title) : "",
@@ -24,6 +31,13 @@ export function comment(lcov, options) {
 	)
 }
 
+/**
+ *
+ * @param {LcovFile[]} lcov
+ * @param {LcovFile[]} before
+ * @param {*} options
+ * @returns
+ */
 export function diff(lcov, before, options) {
 	if (!before) {
 		return comment(lcov, options)
