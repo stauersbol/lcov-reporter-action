@@ -16,7 +16,7 @@ const REQUESTED_COMMENTS_PER_PAGE = 20
  */
 export async function deleteOldComments(github, options, context, keepLast) {
 	const existingComments = await getExistingComments(github, options, context)
-	const commentToUpdate = keepLast ? existingComments.shift() : null
+	const commentToUpdate = keepLast ? null : existingComments.shift()
 	for (const comment of existingComments) {
 		core.debug(`Deleting comment: ${comment.id}`)
 		try {

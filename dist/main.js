@@ -87245,7 +87245,11 @@ function parse(data) {
 	})
 }
 
-// Get the total coverage percentage from the lcov data.
+/**
+ *
+ * @param {lcov.LcovFile[]} lcov
+ * @returns
+ */
 function percentage$1(lcov) {
 	let hit = 0;
 	let found = 0;
@@ -87302,7 +87306,12 @@ function createHref(options, file) {
 	};
 }
 
-// Tabulate the lcov data in a HTML table.
+/**
+ *
+ * @param {LcovFile[]} lcov
+ * @param {*} options
+ * @returns
+ */
 function tabulate(lcov, options) {
 	const head = tr(
 		th("File"),
@@ -87335,6 +87344,12 @@ function tabulate(lcov, options) {
 	return table(tbody(head, ...rows))
 }
 
+/**
+ *
+ * @param {LcovFile[]} lcov
+ * @param {*} options
+ * @returns
+ */
 function filterAndNormaliseLcov(lcov, options) {
 	return lcov
 		.map(file => ({
@@ -87344,13 +87359,22 @@ function filterAndNormaliseLcov(lcov, options) {
 		.filter(file => shouldBeIncluded(file.file, options))
 }
 
+/**
+ * @param {string} fileName
+ * @param {*} options
+ * @returns
+ */
 function shouldBeIncluded(fileName, options) {
 	if (!options.shouldFilterChangedFiles) {
 		return true
 	}
 	return options.changedFiles.includes(fileName.replace(options.prefix, ""))
 }
-
+/**
+ *
+ * @param {string} path
+ * @returns
+ */
 function toFolder(path) {
 	if (path === "") {
 		return ""
@@ -87462,6 +87486,12 @@ function ranges(linenos) {
 	return res
 }
 
+/**
+ *
+ * @param {LcovFile[]} lcov
+ * @param {*} options
+ * @returns
+ */
 function comment(lcov, options) {
 	return fragment(
 		options.title ? h2(options.title) : "",
@@ -87483,6 +87513,13 @@ function comment(lcov, options) {
 	)
 }
 
+/**
+ *
+ * @param {LcovFile[]} lcov
+ * @param {LcovFile[]} before
+ * @param {*} options
+ * @returns
+ */
 function diff(lcov, before, options) {
 	if (!before) {
 		return comment(lcov, options)
@@ -87564,7 +87601,7 @@ const REQUESTED_COMMENTS_PER_PAGE = 20;
  */
 async function deleteOldComments(github, options, context, keepLast) {
 	const existingComments = await getExistingComments(github, options, context);
-	const commentToUpdate = keepLast ? existingComments.shift() : null;
+	const commentToUpdate = keepLast ? null : existingComments.shift();
 	for (const comment of existingComments) {
 		coreExports.debug(`Deleting comment: ${comment.id}`);
 		try {
@@ -87672,7 +87709,7 @@ async function main() {
 	let commentToUpdate;
 	if (shouldDeleteOldComments) {
 		commentToUpdate = await deleteOldComments(githubClient, options, context, shouldUpdateLastComment);
-	} else if (shouldDeleteOldComments) {
+	} else if (!shouldDeleteOldComments) {
 		commentToUpdate = await getExistingComments(githubClient, options, context).shift();
 	}
 	if (context.eventName === "pull_request" && commentToUpdate) {
