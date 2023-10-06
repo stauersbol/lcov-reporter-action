@@ -1,19 +1,19 @@
 import { promises as fs } from "fs"
 import core from "@actions/core"
-import { GitHub, context } from "@actions/github"
+import { context, getOctokit } from "@actions/github"
 import path from "path"
 
 import { parse } from "./lcov"
 import { diff } from "./comment"
 import { getChangedFiles } from "./get_changes"
-import { deleteOldComments } from "./delete_old_comments"
+import { deleteOldComments, getExistingComments } from "./delete_old_comments"
 import { normalisePath } from "./util"
 
 const MAX_COMMENT_CHARS = 65536
 
 async function main() {
 	const token = core.getInput("github-token")
-	const githubClient = new GitHub(token)
+	const githubClient = getOctokit(token).rest
 	const workingDir = core.getInput('working-directory') || './';
 	const lcovFile = path.join(workingDir, core.getInput("lcov-file") || "./coverage/lcov.info")
 	const baseFile = core.getInput("lcov-base")
@@ -21,6 +21,7 @@ async function main() {
 		core.getInput("filter-changed-files").toLowerCase() === "true"
 	const shouldDeleteOldComments =
 		core.getInput("delete-old-comments").toLowerCase() === "true"
+	const shouldUpdateLastComment = core.getInput("update-comment").toLowerCase() === "true"
 	const title = core.getInput("title")
 
 	const raw = await fs.readFile(lcovFile, "utf-8").catch(err => null)
@@ -63,10 +64,21 @@ async function main() {
 	const baselcov = baseRaw && (await parse(baseRaw))
 	const body = diff(lcov, baselcov, options).substring(0, MAX_COMMENT_CHARS)
 
-	if (context.eventName === "pull_request") {
-		if (shouldDeleteOldComments) {
-			await deleteOldComments(githubClient, options, context)
-		}
+	let commentToUpdate
+	if (shouldDeleteOldComments) {
+		commentToUpdate = await deleteOldComments(githubClient, options, context, shouldUpdateLastComment)
+	} else if (shouldDeleteOldComments) {
+		commentToUpdate = await getExistingComments(githubClient, options, context).shift()
+	}
+	if (context.eventName === "pull_request" && commentToUpdate) {
+		await githubClient.issues.updateComment({
+			repo: context.repo.repo,
+			owner: context.repo.owner,
+			issue_number: context.payload.pull_request.number,
+			comment_id: commentToUpdate.id,
+			body: body,
+		})
+	} else if (context.eventName === "pull_request") {
 		await githubClient.issues.createComment({
 			repo: context.repo.repo,
 			owner: context.repo.owner,

@@ -1,6 +1,10 @@
 import lcov from "lcov-parse"
 
-// Parse lcov string into lcov data
+/**
+ *
+ * @param {string} data
+ * @returns {Promise<lcov.LcovFile[]>}
+ */
 export function parse(data) {
 	return new Promise(function(resolve, reject) {
 		lcov(data, function(err, res) {
