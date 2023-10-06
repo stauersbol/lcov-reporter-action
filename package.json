@@ -60,6 +60,7 @@
 	"prettier": {
 		"semi": false,
 		"useTabs": true,
-		"trailingComma": "all"
+		"trailingComma": "all",
+		"singleQuote": true
 	}
 }
