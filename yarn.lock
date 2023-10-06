@@ -1626,6 +1626,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@cedx/lcov@npm:^8.0.1":
+  version: 8.0.1
+  resolution: "@cedx/lcov@npm:8.0.1"
+  checksum: afd156b6c67585b89a25e5db97fcc1619e387af0a8977e954c5798277d2f326e901b7fd94459a08161c3d71310bedf55207cf3632b8f45294394c62925f9465a
+  languageName: node
+  linkType: hard
+
 "@isaacs/cliui@npm:^8.0.2":
   version: 8.0.2
   resolution: "@isaacs/cliui@npm:8.0.2"
@@ -4341,6 +4348,7 @@ __metadata:
     "@babel/core": "npm:^7.8.6"
     "@babel/node": "npm:^7.8.4"
     "@babel/preset-env": "npm:^7.12.11"
+    "@cedx/lcov": "npm:^8.0.1"
     "@rollup/plugin-commonjs": "npm:^25.0.5"
     "@rollup/plugin-json": "npm:^6.0.1"
     "@rollup/plugin-node-resolve": "npm:^15.2.2"
