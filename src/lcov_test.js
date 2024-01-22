@@ -1,6 +1,6 @@
-import { parse, percentage } from "./lcov"
+import { parse, percentage } from './lcov'
 
-test("parse should parse lcov strings correctly", async function() {
+test('parse should parse lcov strings correctly', async function () {
 	const data = `
 TN:
 SF:/files/project/foo.js
@@ -27,8 +27,8 @@ end_of_record
 	const lcov = await parse(data)
 	expect(lcov).toEqual([
 		{
-			title: "",
-			file: "/files/project/foo.js",
+			title: '',
+			file: '/files/project/foo.js',
 			lines: {
 				found: 23,
 				hit: 21,
@@ -52,15 +52,15 @@ end_of_record
 				found: 3,
 				details: [
 					{
-						name: "foo",
+						name: 'foo',
 						line: 19,
 					},
 					{
-						name: "bar",
+						name: 'bar',
 						line: 33,
 					},
 					{
-						name: "baz",
+						name: 'baz',
 						line: 54,
 					},
 				],
@@ -105,7 +105,7 @@ end_of_record
 	])
 })
 
-test.skip("parseNew should parse lcov strings correctly", async function() {
+test.skip('parseNew should parse lcov strings correctly', async function () {
 	const data = `
 TN:
 SF:/files/project/foo.js
@@ -132,8 +132,8 @@ end_of_record
 	const lcov = await parseNew(data)
 	expect(lcov).toEqual([
 		{
-			title: "",
-			file: "/files/project/foo.js",
+			title: '',
+			file: '/files/project/foo.js',
 			lines: {
 				found: 23,
 				hit: 21,
@@ -157,15 +157,15 @@ end_of_record
 				found: 3,
 				details: [
 					{
-						name: "foo",
+						name: 'foo',
 						line: 19,
 					},
 					{
-						name: "bar",
+						name: 'bar',
 						line: 33,
 					},
 					{
-						name: "baz",
+						name: 'baz',
 						line: 54,
 					},
 				],
@@ -210,11 +210,11 @@ end_of_record
 	])
 })
 
-test("parse should fail on invalid lcov", async function() {
-	await expect(parse("invalid")).rejects.toBe("Failed to parse string")
+test('parse should fail on invalid lcov', async function () {
+	await expect(parse('invalid')).rejects.toBe('Failed to parse string')
 })
 
-test("percentage should calculate the correct percentage", function() {
+test('percentage should calculate the correct percentage', function () {
 	expect(
 		percentage([
 			{ lines: { hit: 20, found: 25 } },

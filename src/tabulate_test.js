@@ -1,10 +1,10 @@
-import { tabulate } from "./tabulate"
-import { th, tr, td, table, tbody, a, b, span, fragment } from "./html"
+import { tabulate } from './tabulate'
+import { th, tr, td, table, tbody, a, b, span, fragment } from './html'
 
-test("tabulate should generate a correct table", function() {
+test('tabulate should generate a correct table', function () {
 	const data = [
 		{
-			file: "/files/project/index.js",
+			file: '/files/project/index.js',
 			functions: {
 				found: 0,
 				hit: 0,
@@ -12,7 +12,7 @@ test("tabulate should generate a correct table", function() {
 			},
 		},
 		{
-			file: "/files/project/src/foo.js",
+			file: '/files/project/src/foo.js',
 			lines: {
 				found: 23,
 				hit: 21,
@@ -36,15 +36,15 @@ test("tabulate should generate a correct table", function() {
 				found: 3,
 				details: [
 					{
-						name: "foo",
+						name: 'foo',
 						line: 19,
 					},
 					{
-						name: "bar",
+						name: 'bar',
 						line: 33,
 					},
 					{
-						name: "baz",
+						name: 'baz',
 						line: 54,
 					},
 				],
@@ -75,7 +75,7 @@ test("tabulate should generate a correct table", function() {
 			},
 		},
 		{
-			file: "/files/project/src/bar/baz.js",
+			file: '/files/project/src/bar/baz.js',
 			lines: {
 				found: 10,
 				hit: 5,
@@ -99,15 +99,15 @@ test("tabulate should generate a correct table", function() {
 				found: 3,
 				details: [
 					{
-						name: "foo",
+						name: 'foo',
 						line: 19,
 					},
 					{
-						name: "bar",
+						name: 'bar',
 						line: 33,
 					},
 					{
-						name: "baz",
+						name: 'baz',
 						line: 54,
 					},
 				],
@@ -116,21 +116,21 @@ test("tabulate should generate a correct table", function() {
 	]
 
 	const options = {
-		repository: "example/foo",
-		commit: "2e15bee6fe0df5003389aa5ec894ec0fea2d874a",
-		prefix: "/files/project/",
-		workingDir: 'frontend'
+		repository: 'example/foo',
+		commit: '2e15bee6fe0df5003389aa5ec894ec0fea2d874a',
+		prefix: '/files/project/',
+		workingDir: 'frontend',
 	}
 
 	const html = table(
 		tbody(
 			tr(
-				th("File"),
-				th("Stmts"),
-				th("Branches"),
-				th("Funcs"),
-				th("Lines"),
-				th("Uncovered Lines"),
+				th('File'),
+				th('Stmts'),
+				th('Branches'),
+				th('Funcs'),
+				th('Lines'),
+				th('Uncovered Lines'),
 			),
 			tr(
 				td(
@@ -138,30 +138,30 @@ test("tabulate should generate a correct table", function() {
 						{
 							href: `https://github.com/${options.repository}/blob/${options.commit}/frontend/index.js`,
 						},
-						"index.js",
+						'index.js',
 					),
 				),
-				td("100%"),
-				td("N/A"),
-				td("100%"),
-				td("N/A"),
+				td('100%'),
+				td('N/A'),
+				td('100%'),
+				td('N/A'),
 				td(),
 			),
-			tr(td({ colspan: 6 }, b("src"))),
+			tr(td({ colspan: 6 }, b('src'))),
 			tr(
 				td(
-					"&nbsp; &nbsp;",
+					'&nbsp; &nbsp;',
 					a(
 						{
 							href: `https://github.com/${options.repository}/blob/${options.commit}/frontend/src/foo.js`,
 						},
-						"foo.js",
+						'foo.js',
 					),
 				),
-				td(b("89.66%")),
-				td("100%"),
-				td(b("66.67%")),
-				td(b("91.30%")),
+				td(b('89.66%')),
+				td('100%'),
+				td(b('66.67%')),
+				td(b('91.30%')),
 				td(
 					a(
 						{
@@ -171,34 +171,34 @@ test("tabulate should generate a correct table", function() {
 					),
 				),
 			),
-			tr(td({ colspan: 6 }, b("src/bar"))),
+			tr(td({ colspan: 6 }, b('src/bar'))),
 			tr(
 				td(
-					"&nbsp; &nbsp;",
+					'&nbsp; &nbsp;',
 					a(
 						{
 							href: `https://github.com/${options.repository}/blob/${options.commit}/frontend/src/bar/baz.js`,
 						},
-						"baz.js",
+						'baz.js',
 					),
 				),
-				td(b("53.85%")),
-				td("N/A"),
-				td(b("66.67%")),
-				td(b("50%")),
+				td(b('53.85%')),
+				td('N/A'),
+				td(b('66.67%')),
+				td(b('50%')),
 				td(
 					a(
 						{
 							href: `https://github.com/${options.repository}/blob/${options.commit}/frontend/src/bar/baz.js#L20-L21`,
 						},
-						"20&ndash;21",
+						'20&ndash;21',
 					),
-					", ",
+					', ',
 					a(
 						{
 							href: `https://github.com/${options.repository}/blob/${options.commit}/frontend/src/bar/baz.js#L27`,
 						},
-						"27",
+						'27',
 					),
 				),
 			),
@@ -207,10 +207,10 @@ test("tabulate should generate a correct table", function() {
 	expect(tabulate(data, options)).toBe(html)
 })
 
-test("filtered tabulate should generate a correct table with only changed files", function() {
+test('filtered tabulate should generate a correct table with only changed files', function () {
 	const data = [
 		{
-			file: "/files/project/index.js",
+			file: '/files/project/index.js',
 			functions: {
 				found: 0,
 				hit: 0,
@@ -218,7 +218,7 @@ test("filtered tabulate should generate a correct table with only changed files"
 			},
 		},
 		{
-			file: "/files/project/src/foo.js",
+			file: '/files/project/src/foo.js',
 			lines: {
 				found: 23,
 				hit: 21,
@@ -242,15 +242,15 @@ test("filtered tabulate should generate a correct table with only changed files"
 				found: 3,
 				details: [
 					{
-						name: "foo",
+						name: 'foo',
 						line: 19,
 					},
 					{
-						name: "bar",
+						name: 'bar',
 						line: 33,
 					},
 					{
-						name: "baz",
+						name: 'baz',
 						line: 54,
 					},
 				],
@@ -281,7 +281,7 @@ test("filtered tabulate should generate a correct table with only changed files"
 			},
 		},
 		{
-			file: "/files/project/src/bar/baz.js",
+			file: '/files/project/src/bar/baz.js',
 			lines: {
 				found: 10,
 				hit: 5,
@@ -305,15 +305,15 @@ test("filtered tabulate should generate a correct table with only changed files"
 				found: 3,
 				details: [
 					{
-						name: "foo",
+						name: 'foo',
 						line: 19,
 					},
 					{
-						name: "bar",
+						name: 'bar',
 						line: 33,
 					},
 					{
-						name: "baz",
+						name: 'baz',
 						line: 54,
 					},
 				],
@@ -322,38 +322,38 @@ test("filtered tabulate should generate a correct table with only changed files"
 	]
 
 	const options = {
-		repository: "example/foo",
-		commit: "2e15bee6fe0df5003389aa5ec894ec0fea2d874a",
-		prefix: "/files/project/",
+		repository: 'example/foo',
+		commit: '2e15bee6fe0df5003389aa5ec894ec0fea2d874a',
+		prefix: '/files/project/',
 		shouldFilterChangedFiles: true,
-		changedFiles: ["src/foo.js"],
+		changedFiles: ['src/foo.js'],
 	}
 
 	const html = table(
 		tbody(
 			tr(
-				th("File"),
-				th("Stmts"),
-				th("Branches"),
-				th("Funcs"),
-				th("Lines"),
-				th("Uncovered Lines"),
+				th('File'),
+				th('Stmts'),
+				th('Branches'),
+				th('Funcs'),
+				th('Lines'),
+				th('Uncovered Lines'),
 			),
-			tr(td({ colspan: 6 }, b("src"))),
+			tr(td({ colspan: 6 }, b('src'))),
 			tr(
 				td(
-					"&nbsp; &nbsp;",
+					'&nbsp; &nbsp;',
 					a(
 						{
 							href: `https://github.com/${options.repository}/blob/${options.commit}/src/foo.js`,
 						},
-						"foo.js",
+						'foo.js',
 					),
 				),
-				td(b("89.66%")),
-				td("100%"),
-				td(b("66.67%")),
-				td(b("91.30%")),
+				td(b('89.66%')),
+				td('100%'),
+				td(b('66.67%')),
+				td(b('91.30%')),
 				td(
 					a(
 						{
@@ -368,10 +368,10 @@ test("filtered tabulate should generate a correct table with only changed files"
 	expect(tabulate(data, options)).toBe(html)
 })
 
-test("filtered tabulate should fix backwards slashes in filenames", function() {
+test('filtered tabulate should fix backwards slashes in filenames', function () {
 	const data = [
 		{
-			file: "\\files\\project\\index.js",
+			file: '\\files\\project\\index.js',
 			functions: {
 				found: 0,
 				hit: 0,
@@ -379,7 +379,7 @@ test("filtered tabulate should fix backwards slashes in filenames", function() {
 			},
 		},
 		{
-			file: "\\files\\project\\src\\foo.js",
+			file: '\\files\\project\\src\\foo.js',
 			lines: {
 				found: 23,
 				hit: 21,
@@ -403,15 +403,15 @@ test("filtered tabulate should fix backwards slashes in filenames", function() {
 				found: 3,
 				details: [
 					{
-						name: "foo",
+						name: 'foo',
 						line: 19,
 					},
 					{
-						name: "bar",
+						name: 'bar',
 						line: 33,
 					},
 					{
-						name: "baz",
+						name: 'baz',
 						line: 54,
 					},
 				],
@@ -442,7 +442,7 @@ test("filtered tabulate should fix backwards slashes in filenames", function() {
 			},
 		},
 		{
-			file: "\\files\\project\\src\\bar\\baz.js",
+			file: '\\files\\project\\src\\bar\\baz.js',
 			lines: {
 				found: 10,
 				hit: 5,
@@ -466,15 +466,15 @@ test("filtered tabulate should fix backwards slashes in filenames", function() {
 				found: 3,
 				details: [
 					{
-						name: "foo",
+						name: 'foo',
 						line: 19,
 					},
 					{
-						name: "bar",
+						name: 'bar',
 						line: 33,
 					},
 					{
-						name: "baz",
+						name: 'baz',
 						line: 54,
 					},
 				],
@@ -483,38 +483,38 @@ test("filtered tabulate should fix backwards slashes in filenames", function() {
 	]
 
 	const options = {
-		repository: "example/foo",
-		commit: "2e15bee6fe0df5003389aa5ec894ec0fea2d874a",
-		prefix: "/files/project/",
+		repository: 'example/foo',
+		commit: '2e15bee6fe0df5003389aa5ec894ec0fea2d874a',
+		prefix: '/files/project/',
 		shouldFilterChangedFiles: true,
-		changedFiles: ["src/foo.js"],
+		changedFiles: ['src/foo.js'],
 	}
-	
+
 	const html = table(
 		tbody(
 			tr(
-				th("File"),
-				th("Stmts"),
-				th("Branches"),
-				th("Funcs"),
-				th("Lines"),
-				th("Uncovered Lines"),
+				th('File'),
+				th('Stmts'),
+				th('Branches'),
+				th('Funcs'),
+				th('Lines'),
+				th('Uncovered Lines'),
 			),
-			tr(td({ colspan: 6 }, b("src"))),
+			tr(td({ colspan: 6 }, b('src'))),
 			tr(
 				td(
-					"&nbsp; &nbsp;",
+					'&nbsp; &nbsp;',
 					a(
 						{
 							href: `https://github.com/${options.repository}/blob/${options.commit}/src/foo.js`,
 						},
-						"foo.js",
+						'foo.js',
 					),
 				),
-				td(b("89.66%")),
-				td("100%"),
-				td(b("66.67%")),
-				td(b("91.30%")),
+				td(b('89.66%')),
+				td('100%'),
+				td(b('66.67%')),
+				td(b('91.30%')),
 				td(
 					a(
 						{
