@@ -1,6 +1,17 @@
 import * as core from "@actions/core"
 
 // Get list of changed files
+/**
+ * @typedef {import('@octokit/plugin-rest-endpoint-methods/dist-types/generated/method-types').RestEndpointMethods} GithubRest
+ */
+
+/**
+ *
+ * @param {GithubRest} githubClient
+ * @param {*} options
+ * @param {Context} context
+ * @returns
+ */
 export async function getChangedFiles(githubClient, options, context) {
 	if (!options.commit || !options.baseCommit) {
 		core.setFailed(
