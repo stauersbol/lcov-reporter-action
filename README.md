@@ -37,6 +37,12 @@ If set to true, only changed files will be included in the report. Total percent
 ##### `delete-old-comments` (**Default: false**)
 If set to true, old comments will be deleted before a new comment is posted
 
+##### `fail-drop-percent-threshold` (**Default: 0.5%**)
+If included, will have a threshold of when the report fails. This is in percentage.
+
+##### `update-comment` (**Default: true**)
+If set to false, the old comment will get updated.
+
 ##### `title` (**Optional**)
 If included, will be added as a title for the comment produced.
 
