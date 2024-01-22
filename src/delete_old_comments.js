@@ -5,6 +5,7 @@ const REQUESTED_COMMENTS_PER_PAGE = 20
 
 /**
  * @typedef {import('@octokit/plugin-rest-endpoint-methods/dist-types/generated/method-types').RestEndpointMethods} GithubRest
+ * @typedef {Awaited<ReturnType<GithubRest['issues']['listComments']>>} ListCommentsResponse
  */
 
 /**
@@ -42,7 +43,11 @@ export async function deleteOldComments(github, options, context, keepLast) {
  */
 export async function getExistingComments(github, options, context) {
 	let page = 0
+
+	/** @type {ListCommentsResponse['data']} */
 	let results = []
+
+	/** @type {ListCommentsResponse} */
 	let response
 	do {
 		response = await github.issues.listComments({
