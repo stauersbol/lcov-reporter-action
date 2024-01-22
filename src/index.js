@@ -63,6 +63,7 @@ async function main() {
 
 	options.shouldFilterChangedFiles = shouldFilterChangedFiles
 	options.title = title
+	options.failDropThreshold = failDropThreshold
 
 	if (shouldFilterChangedFiles) {
 		options.changedFiles = await getChangedFiles(githubClient, options, context)
@@ -100,6 +101,26 @@ async function main() {
 			commit_sha: options.commit,
 			body: body,
 		})
+	}
+
+	if (failDropThreshold) {
+		if (!baselcov) {
+			console.warn(
+				`No base coverage report provided, cannot check for coverage drop. Skipping this step.`,
+			)
+		} else {
+			const pbefore = percentage(baselcov)
+			const pafter = percentage(lcov)
+			const pdiff = pafter - pbefore
+
+			if (pdiff < -failDropThreshold) {
+				core.setFailed(
+					`Coverage drop of ${pdiff.toFixed(
+						2,
+					)}% is below threshold of ${failDropThreshold}%. Failing...`,
+				)
+			}
+		}
 	}
 }
 
