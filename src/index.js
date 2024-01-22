@@ -23,8 +23,16 @@ async function main() {
 		core.getInput("delete-old-comments").toLowerCase() === "true"
 	const shouldUpdateLastComment = core.getInput("update-comment").toLowerCase() === "true"
 	const title = core.getInput("title")
+	const failDropThreshold = core.getInput('fail-drop-threshold')
 
 	const raw = await fs.readFile(lcovFile, "utf-8").catch(err => null)
+	if (failDropThreshold && isNaN(parseFloat(failDropThreshold))) {
+		console.error(
+			`Invalid parameter for fail-drop-threshold: '${failDropThreshold}'. Must be a number. Exiting...`,
+		)
+		return
+	}
+
 	if (!raw) {
 		console.log(`No coverage report found at '${lcovFile}', exiting...`)
 		return
