@@ -25,7 +25,6 @@ async function main() {
 	const title = core.getInput("title")
 	const failDropThreshold = core.getInput('fail-drop-threshold')
 
-	const raw = await fs.readFile(lcovFile, "utf-8").catch(err => null)
 	if (failDropThreshold && isNaN(parseFloat(failDropThreshold))) {
 		console.error(
 			`Invalid parameter for fail-drop-threshold: '${failDropThreshold}'. Must be a number. Exiting...`,
@@ -33,6 +32,7 @@ async function main() {
 		return
 	}
 
+	const raw = await fs.readFile(lcovFile, 'utf-8').catch((err) => null)
 	if (!raw) {
 		console.log(`No coverage report found at '${lcovFile}', exiting...`)
 		return
