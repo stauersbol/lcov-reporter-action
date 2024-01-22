@@ -48,6 +48,9 @@ export function diff(lcov, before, options) {
 	const pdiff = pafter - pbefore
 	const plus = pdiff > 0 ? "+" : ""
 	const arrow = pdiff === 0 ? "" : pdiff < 0 ? "▾" : "▴"
+	const thresholdWarning = options.failDropThreshold
+		? `Failing due to coverage drop below ${options.failDropThreshold}%`
+		: ''
 
 	return fragment(
 		options.title ? h2(options.title) : "",
@@ -65,6 +68,7 @@ export function diff(lcov, before, options) {
 			),
 		),
 		"\n\n",
+		thresholdWarning ? b(thresholdWarning) : '',
 		details(
 			summary(
 				options.shouldFilterChangedFiles
