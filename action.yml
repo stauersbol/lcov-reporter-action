@@ -31,6 +31,10 @@ inputs:
     description: Set working directory if project is not in root folder
     required: false
     default: "./"
+  fail-drop-percent-threshold:
+    description: Fail the build if the coverage drops below this threshold in %
+    required: false
+    default: "0.5"
   title:
     description: Title to add to the comment
     required: false
