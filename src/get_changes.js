@@ -1,6 +1,6 @@
-import * as core from "@actions/core"
+import * as core from '@actions/core'
+import { Context } from '@actions/github/lib/context'
 
-// Get list of changed files
 /**
  * @typedef {import('@octokit/plugin-rest-endpoint-methods/dist-types/generated/method-types').RestEndpointMethods} GithubRest
  */
@@ -18,9 +18,6 @@ export async function getChangedFiles(githubClient, options, context) {
 			`The base and head commits are missing from the payload for this ${context.eventName} event.`,
 		)
 	}
-
-	// Use GitHub's compare two commits API.
-	// https://developer.github.com/v3/repos/commits/#compare-two-commits
 	const response = await githubClient.repos.compareCommits({
 		base: options.baseCommit,
 		head: options.commit,
@@ -35,6 +32,6 @@ export async function getChangedFiles(githubClient, options, context) {
 	}
 
 	return response.data.files
-		.filter(file => file.status == "modified" || file.status == "added")
-		.map(file => file.filename)
+		.filter((file) => file.status == 'modified' || file.status == 'added')
+		.map((file) => file.filename)
 }

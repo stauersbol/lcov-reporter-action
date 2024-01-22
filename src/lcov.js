@@ -1,4 +1,4 @@
-import lcov from "lcov-parse"
+import lcov from 'lcov-parse'
 
 /**
  *
@@ -6,8 +6,8 @@ import lcov from "lcov-parse"
  * @returns {Promise<lcov.LcovFile[]>}
  */
 export function parse(data) {
-	return new Promise(function(resolve, reject) {
-		lcov(data, function(err, res) {
+	return new Promise(function (resolve, reject) {
+		lcov(data, function (err, res) {
 			if (err) {
 				reject(err)
 				return
@@ -20,7 +20,7 @@ export function parse(data) {
 /**
  *
  * @param {lcov.LcovFile[]} lcov
- * @returns
+ * @returns {number}
  */
 export function percentage(lcov) {
 	let hit = 0

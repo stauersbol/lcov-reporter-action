@@ -1,5 +1,5 @@
-import * as core from "@actions/core"
-import { Context } from "@actions/github/lib/context"
+import * as core from '@actions/core'
+import { Context } from '@actions/github/lib/context'
 
 const REQUESTED_COMMENTS_PER_PAGE = 20
 
@@ -56,7 +56,7 @@ export async function getExistingComments(github, options, context) {
 			repo: context.repo.repo,
 			per_page: REQUESTED_COMMENTS_PER_PAGE,
 			page: page,
-			sort: "updated",
+			sort: 'updated',
 			direction: 'desc',
 		})
 		results = results.concat(response.data)
@@ -64,9 +64,9 @@ export async function getExistingComments(github, options, context) {
 	} while (response.data.length === REQUESTED_COMMENTS_PER_PAGE)
 
 	return results.filter(
-		comment =>
+		(comment) =>
 			!!comment.user &&
 			(!options.title || comment.body.includes(options.title)) &&
-			comment.body.includes("Coverage Report"),
+			comment.body.includes('Coverage Report'),
 	)
 }
