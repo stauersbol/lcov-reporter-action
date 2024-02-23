@@ -151,7 +151,7 @@ function uncovered(file, options) {
 					: `${range.start}&ndash;${range.end}`
 
 			return a({ href: `${href}#${fragment}` }, text)
-		})
+		}).sort((a, b) => a - b)
 		.join(', ')
 }
 
