@@ -2,11 +2,10 @@ import { details, summary, b, fragment, table, tbody, tr, th, h2 } from './html'
 
 import { percentage } from './lcov'
 import { tabulate } from './tabulate'
-import { LcovFile } from 'lcov-parse'
 
 /**
  *
- * @param {LcovFile[]} lcov
+ * @param {import('lcov-parse').LcovFile[]} lcov
  * @param {*} options
  * @returns
  */
@@ -33,8 +32,8 @@ export function comment(lcov, options) {
 
 /**
  *
- * @param {LcovFile[]} lcov
- * @param {LcovFile[]} before
+ * @param {import('lcov-parse').LcovFile[]} lcov
+ * @param {import('lcov-parse').LcovFile[]} before
  * @param {*} options
  * @returns
  */
