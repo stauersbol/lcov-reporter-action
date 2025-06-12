@@ -79,18 +79,19 @@ async function main() {
 
 	let commentToUpdate
 	if (shouldDeleteOldComments) {
-		commentToUpdate = await deleteOldComments(
+		await deleteOldComments(
 			githubClient,
 			options,
 			context,
 			shouldUpdateLastComment,
 		)
 	} else if (shouldUpdateLastComment) {
-		commentToUpdate = await getExistingComments(
+		const existingComment = await getExistingComments(
 			githubClient,
 			options,
 			context,
-		).shift()
+		)
+		commentToUpdate = existingComment.shift()
 	}
 	if (context.eventName === 'pull_request' && commentToUpdate) {
 		await githubClient.issues.updateComment({
