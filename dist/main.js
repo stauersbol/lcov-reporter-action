@@ -1,60 +1,31 @@
 'use strict';
 
-var require$$0$2 = require('fs');
-var require$$0 = require('os');
-var require$$0$1 = require('crypto');
-var require$$1$4 = require('path');
-var require$$2 = require('http');
-var require$$3 = require('https');
-var require$$0$6 = require('net');
-var require$$1$1 = require('tls');
-var require$$0$3 = require('events');
-var require$$0$4 = require('assert');
-var require$$1 = require('util');
-var require$$0$5 = require('stream');
-var require$$7 = require('buffer');
-var require$$8 = require('querystring');
-var require$$14 = require('stream/web');
-var require$$0$7 = require('worker_threads');
-var require$$2$1 = require('perf_hooks');
-var require$$5 = require('util/types');
-var require$$4 = require('async_hooks');
-var require$$1$2 = require('console');
-var require$$1$3 = require('url');
-var require$$3$1 = require('zlib');
-var require$$6 = require('string_decoder');
-var require$$0$8 = require('diagnostics_channel');
-var require$$2$2 = require('child_process');
-var require$$6$1 = require('timers');
-
-function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
-
-var require$$0__default$2 = /*#__PURE__*/_interopDefaultLegacy(require$$0$2);
-var require$$0__default = /*#__PURE__*/_interopDefaultLegacy(require$$0);
-var require$$0__default$1 = /*#__PURE__*/_interopDefaultLegacy(require$$0$1);
-var require$$1__default$4 = /*#__PURE__*/_interopDefaultLegacy(require$$1$4);
-var require$$2__default = /*#__PURE__*/_interopDefaultLegacy(require$$2);
-var require$$3__default = /*#__PURE__*/_interopDefaultLegacy(require$$3);
-var require$$0__default$6 = /*#__PURE__*/_interopDefaultLegacy(require$$0$6);
-var require$$1__default$1 = /*#__PURE__*/_interopDefaultLegacy(require$$1$1);
-var require$$0__default$3 = /*#__PURE__*/_interopDefaultLegacy(require$$0$3);
-var require$$0__default$4 = /*#__PURE__*/_interopDefaultLegacy(require$$0$4);
-var require$$1__default = /*#__PURE__*/_interopDefaultLegacy(require$$1);
-var require$$0__default$5 = /*#__PURE__*/_interopDefaultLegacy(require$$0$5);
-var require$$7__default = /*#__PURE__*/_interopDefaultLegacy(require$$7);
-var require$$8__default = /*#__PURE__*/_interopDefaultLegacy(require$$8);
-var require$$14__default = /*#__PURE__*/_interopDefaultLegacy(require$$14);
-var require$$0__default$7 = /*#__PURE__*/_interopDefaultLegacy(require$$0$7);
-var require$$2__default$1 = /*#__PURE__*/_interopDefaultLegacy(require$$2$1);
-var require$$5__default = /*#__PURE__*/_interopDefaultLegacy(require$$5);
-var require$$4__default = /*#__PURE__*/_interopDefaultLegacy(require$$4);
-var require$$1__default$2 = /*#__PURE__*/_interopDefaultLegacy(require$$1$2);
-var require$$1__default$3 = /*#__PURE__*/_interopDefaultLegacy(require$$1$3);
-var require$$3__default$1 = /*#__PURE__*/_interopDefaultLegacy(require$$3$1);
-var require$$6__default = /*#__PURE__*/_interopDefaultLegacy(require$$6);
-var require$$0__default$8 = /*#__PURE__*/_interopDefaultLegacy(require$$0$8);
-var require$$2__default$2 = /*#__PURE__*/_interopDefaultLegacy(require$$2$2);
-var require$$6__default$1 = /*#__PURE__*/_interopDefaultLegacy(require$$6$1);
+var require$$0$2 = require('node:fs');
+var require$$0 = require('node:os');
+var require$$0$1 = require('node:crypto');
+var require$$1$4 = require('node:path');
+var require$$2 = require('node:http');
+var require$$3 = require('node:https');
+var require$$0$5 = require('node:net');
+var require$$1$1 = require('node:tls');
+var require$$0$3 = require('node:events');
+var require$$0$4 = require('node:assert');
+var require$$1 = require('node:util');
+var require$$0$6 = require('node:stream');
+var require$$7 = require('node:buffer');
+var require$$8 = require('node:querystring');
+var require$$14 = require('node:stream/web');
+var require$$0$7 = require('node:worker_threads');
+var require$$2$1 = require('node:perf_hooks');
+var require$$5 = require('node:util/types');
+var require$$4 = require('node:async_hooks');
+var require$$1$2 = require('node:console');
+var require$$1$3 = require('node:url');
+var require$$3$1 = require('node:zlib');
+var require$$6 = require('node:string_decoder');
+var require$$0$8 = require('node:diagnostics_channel');
+var require$$2$2 = require('node:child_process');
+var require$$6$1 = require('node:timers');
 
 var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
@@ -132,7 +103,7 @@ var __importStar$4 = (commonjsGlobal && commonjsGlobal.__importStar) || function
 };
 Object.defineProperty(command, "__esModule", { value: true });
 command.issue = command.issueCommand = void 0;
-const os$1 = __importStar$4(require$$0__default["default"]);
+const os$1 = __importStar$4(require$$0);
 const utils_1$2 = utils$3;
 /**
  * Commands
@@ -232,9 +203,9 @@ Object.defineProperty(fileCommand, "__esModule", { value: true });
 fileCommand.prepareKeyValueMessage = fileCommand.issueFileCommand = void 0;
 // We use any as a valid input type
 /* eslint-disable @typescript-eslint/no-explicit-any */
-const crypto = __importStar$3(require$$0__default$1["default"]);
-const fs$1 = __importStar$3(require$$0__default$2["default"]);
-const os = __importStar$3(require$$0__default["default"]);
+const crypto = __importStar$3(require$$0$1);
+const fs$1 = __importStar$3(require$$0$2);
+const os = __importStar$3(require$$0);
 const utils_1$1 = utils$3;
 function issueFileCommand(command, message) {
     const filePath = process.env[`GITHUB_${command}`];
@@ -354,11 +325,11 @@ function isLoopbackAddress(host) {
 
 var tunnel$2 = {};
 
-var tls$1 = require$$1__default$1["default"];
-var http$2 = require$$2__default["default"];
-var https$1 = require$$3__default["default"];
-var events$1 = require$$0__default$3["default"];
-var util$k = require$$1__default["default"];
+var tls$1 = require$$1$1;
+var http$2 = require$$2;
+var https$1 = require$$3;
+var events$1 = require$$0$3;
+var util$k = require$$1;
 
 
 tunnel$2.httpOverHttp = httpOverHttp;
@@ -634,7 +605,6 @@ var symbols$4 = {
   kKeepAliveMaxTimeout: Symbol('max keep alive timeout'),
   kKeepAliveTimeoutThreshold: Symbol('keep alive timeout threshold'),
   kKeepAliveTimeoutValue: Symbol('keep alive timeout'),
-  kKeepAlive: Symbol('keep alive'),
   kHeadersTimeout: Symbol('headers timeout'),
   kBodyTimeout: Symbol('body timeout'),
   kServerName: Symbol('server name'),
@@ -650,7 +620,6 @@ var symbols$4 = {
   kQueued: Symbol('queued'),
   kFree: Symbol('free'),
   kConnected: Symbol('connected'),
-  kClosed: Symbol('closed'),
   kNeedDrain: Symbol('need drain'),
   kReset: Symbol('reset'),
   kDestroyed: Symbol.for('nodejs.stream.destroyed'),
@@ -661,7 +630,6 @@ var symbols$4 = {
   kClients: Symbol('clients'),
   kClient: Symbol('client'),
   kParser: Symbol('parser'),
-  kOnDestroyed: Symbol('destroy callbacks'),
   kPipelining: Symbol('pipelining'),
   kSocket: Symbol('socket'),
   kHostHeader: Symbol('host header'),
@@ -683,58 +651,58 @@ var symbols$4 = {
   kConstruct: Symbol('constructable')
 };
 
-class UndiciError$2 extends Error {
+let UndiciError$2 = class UndiciError extends Error {
   constructor (message) {
     super(message);
     this.name = 'UndiciError';
     this.code = 'UND_ERR';
   }
-}
+};
 
-class ConnectTimeoutError$1 extends UndiciError$2 {
+let ConnectTimeoutError$1 = class ConnectTimeoutError extends UndiciError$2 {
   constructor (message) {
     super(message);
-    Error.captureStackTrace(this, ConnectTimeoutError$1);
+    Error.captureStackTrace(this, ConnectTimeoutError);
     this.name = 'ConnectTimeoutError';
     this.message = message || 'Connect Timeout Error';
     this.code = 'UND_ERR_CONNECT_TIMEOUT';
   }
-}
+};
 
-class HeadersTimeoutError$1 extends UndiciError$2 {
+let HeadersTimeoutError$1 = class HeadersTimeoutError extends UndiciError$2 {
   constructor (message) {
     super(message);
-    Error.captureStackTrace(this, HeadersTimeoutError$1);
+    Error.captureStackTrace(this, HeadersTimeoutError);
     this.name = 'HeadersTimeoutError';
     this.message = message || 'Headers Timeout Error';
     this.code = 'UND_ERR_HEADERS_TIMEOUT';
   }
-}
+};
 
-class HeadersOverflowError$1 extends UndiciError$2 {
+let HeadersOverflowError$1 = class HeadersOverflowError extends UndiciError$2 {
   constructor (message) {
     super(message);
-    Error.captureStackTrace(this, HeadersOverflowError$1);
+    Error.captureStackTrace(this, HeadersOverflowError);
     this.name = 'HeadersOverflowError';
     this.message = message || 'Headers Overflow Error';
     this.code = 'UND_ERR_HEADERS_OVERFLOW';
   }
-}
+};
 
-class BodyTimeoutError$1 extends UndiciError$2 {
+let BodyTimeoutError$1 = class BodyTimeoutError extends UndiciError$2 {
   constructor (message) {
     super(message);
-    Error.captureStackTrace(this, BodyTimeoutError$1);
+    Error.captureStackTrace(this, BodyTimeoutError);
     this.name = 'BodyTimeoutError';
     this.message = message || 'Body Timeout Error';
     this.code = 'UND_ERR_BODY_TIMEOUT';
   }
-}
+};
 
-class ResponseStatusCodeError$1 extends UndiciError$2 {
+let ResponseStatusCodeError$1 = class ResponseStatusCodeError extends UndiciError$2 {
   constructor (message, statusCode, headers, body) {
     super(message);
-    Error.captureStackTrace(this, ResponseStatusCodeError$1);
+    Error.captureStackTrace(this, ResponseStatusCodeError);
     this.name = 'ResponseStatusCodeError';
     this.message = message || 'Response Status Code Error';
     this.code = 'UND_ERR_RESPONSE_STATUS_CODE';
@@ -743,110 +711,110 @@ class ResponseStatusCodeError$1 extends UndiciError$2 {
     this.statusCode = statusCode;
     this.headers = headers;
   }
-}
+};
 
-class InvalidArgumentError$m extends UndiciError$2 {
+let InvalidArgumentError$m = class InvalidArgumentError extends UndiciError$2 {
   constructor (message) {
     super(message);
-    Error.captureStackTrace(this, InvalidArgumentError$m);
+    Error.captureStackTrace(this, InvalidArgumentError);
     this.name = 'InvalidArgumentError';
     this.message = message || 'Invalid Argument Error';
     this.code = 'UND_ERR_INVALID_ARG';
   }
-}
+};
 
-class InvalidReturnValueError$2 extends UndiciError$2 {
+let InvalidReturnValueError$2 = class InvalidReturnValueError extends UndiciError$2 {
   constructor (message) {
     super(message);
-    Error.captureStackTrace(this, InvalidReturnValueError$2);
+    Error.captureStackTrace(this, InvalidReturnValueError);
     this.name = 'InvalidReturnValueError';
     this.message = message || 'Invalid Return Value Error';
     this.code = 'UND_ERR_INVALID_RETURN_VALUE';
   }
-}
+};
 
-class RequestAbortedError$9 extends UndiciError$2 {
+let RequestAbortedError$9 = class RequestAbortedError extends UndiciError$2 {
   constructor (message) {
     super(message);
-    Error.captureStackTrace(this, RequestAbortedError$9);
+    Error.captureStackTrace(this, RequestAbortedError);
     this.name = 'AbortError';
     this.message = message || 'Request aborted';
     this.code = 'UND_ERR_ABORTED';
   }
-}
+};
 
-class InformationalError$1 extends UndiciError$2 {
+let InformationalError$1 = class InformationalError extends UndiciError$2 {
   constructor (message) {
     super(message);
-    Error.captureStackTrace(this, InformationalError$1);
+    Error.captureStackTrace(this, InformationalError);
     this.name = 'InformationalError';
     this.message = message || 'Request information';
     this.code = 'UND_ERR_INFO';
   }
-}
+};
 
-class RequestContentLengthMismatchError$1 extends UndiciError$2 {
+let RequestContentLengthMismatchError$1 = class RequestContentLengthMismatchError extends UndiciError$2 {
   constructor (message) {
     super(message);
-    Error.captureStackTrace(this, RequestContentLengthMismatchError$1);
+    Error.captureStackTrace(this, RequestContentLengthMismatchError);
     this.name = 'RequestContentLengthMismatchError';
     this.message = message || 'Request body length does not match content-length header';
     this.code = 'UND_ERR_REQ_CONTENT_LENGTH_MISMATCH';
   }
-}
+};
 
-class ResponseContentLengthMismatchError$1 extends UndiciError$2 {
+let ResponseContentLengthMismatchError$1 = class ResponseContentLengthMismatchError extends UndiciError$2 {
   constructor (message) {
     super(message);
-    Error.captureStackTrace(this, ResponseContentLengthMismatchError$1);
+    Error.captureStackTrace(this, ResponseContentLengthMismatchError);
     this.name = 'ResponseContentLengthMismatchError';
     this.message = message || 'Response body length does not match content-length header';
     this.code = 'UND_ERR_RES_CONTENT_LENGTH_MISMATCH';
   }
-}
+};
 
-class ClientDestroyedError$2 extends UndiciError$2 {
+let ClientDestroyedError$2 = class ClientDestroyedError extends UndiciError$2 {
   constructor (message) {
     super(message);
-    Error.captureStackTrace(this, ClientDestroyedError$2);
+    Error.captureStackTrace(this, ClientDestroyedError);
     this.name = 'ClientDestroyedError';
     this.message = message || 'The client is destroyed';
     this.code = 'UND_ERR_DESTROYED';
   }
-}
+};
 
-class ClientClosedError$1 extends UndiciError$2 {
+let ClientClosedError$1 = class ClientClosedError extends UndiciError$2 {
   constructor (message) {
     super(message);
-    Error.captureStackTrace(this, ClientClosedError$1);
+    Error.captureStackTrace(this, ClientClosedError);
     this.name = 'ClientClosedError';
     this.message = message || 'The client is closed';
     this.code = 'UND_ERR_CLOSED';
   }
-}
+};
 
-class SocketError$3 extends UndiciError$2 {
+let SocketError$3 = class SocketError extends UndiciError$2 {
   constructor (message, socket) {
     super(message);
-    Error.captureStackTrace(this, SocketError$3);
+    Error.captureStackTrace(this, SocketError);
     this.name = 'SocketError';
     this.message = message || 'Socket error';
     this.code = 'UND_ERR_SOCKET';
     this.socket = socket;
   }
-}
+};
 
-class NotSupportedError$2 extends UndiciError$2 {
+let NotSupportedError$2 = class NotSupportedError extends UndiciError$2 {
   constructor (message) {
     super(message);
-    Error.captureStackTrace(this, NotSupportedError$2);
+    Error.captureStackTrace(this, NotSupportedError);
     this.name = 'NotSupportedError';
     this.message = message || 'Not supported error';
     this.code = 'UND_ERR_NOT_SUPPORTED';
   }
-}
+};
 
-class BalancedPoolMissingUpstreamError$1 extends UndiciError$2 {
+let BalancedPoolMissingUpstreamError$1 = class BalancedPoolMissingUpstreamError extends UndiciError$2 {
   constructor (message) {
     super(message);
     Error.captureStackTrace(this, NotSupportedError$2);
@@ -854,32 +822,32 @@ class BalancedPoolMissingUpstreamError$1 extends UndiciError$2 {
     this.message = message || 'No upstream has been added to the BalancedPool';
     this.code = 'UND_ERR_BPL_MISSING_UPSTREAM';
   }
-}
+};
 
-class HTTPParserError$1 extends Error {
+let HTTPParserError$1 = class HTTPParserError extends Error {
   constructor (message, code, data) {
     super(message);
-    Error.captureStackTrace(this, HTTPParserError$1);
+    Error.captureStackTrace(this, HTTPParserError);
     this.name = 'HTTPParserError';
     this.code = code ? `HPE_${code}` : undefined;
     this.data = data ? data.toString() : undefined;
   }
-}
+};
 
-class ResponseExceededMaxSizeError$1 extends UndiciError$2 {
+let ResponseExceededMaxSizeError$1 = class ResponseExceededMaxSizeError extends UndiciError$2 {
   constructor (message) {
     super(message);
-    Error.captureStackTrace(this, ResponseExceededMaxSizeError$1);
+    Error.captureStackTrace(this, ResponseExceededMaxSizeError);
     this.name = 'ResponseExceededMaxSizeError';
     this.message = message || 'Response content exceeded max size';
     this.code = 'UND_ERR_RES_EXCEEDED_MAX_SIZE';
   }
-}
+};
 
-class RequestRetryError$1 extends UndiciError$2 {
+let RequestRetryError$1 = class RequestRetryError extends UndiciError$2 {
   constructor (message, code, { headers, data }) {
     super(message);
-    Error.captureStackTrace(this, RequestRetryError$1);
+    Error.captureStackTrace(this, RequestRetryError);
     this.name = 'RequestRetryError';
     this.message = message || 'Request retry error';
     this.code = 'UND_ERR_REQ_RETRY';
@@ -887,7 +855,7 @@ class RequestRetryError$1 extends UndiciError$2 {
     this.data = data;
     this.headers = headers;
   }
-}
+};
 
 var errors$1 = {
   HTTPParserError: HTTPParserError$1,
@@ -1025,19 +993,18 @@ for (let i = 0; i < wellknownHeaderNames.length; ++i) {
 Object.setPrototypeOf(headerNameLowerCasedRecord$1, null);
 
 var constants$5 = {
-  wellknownHeaderNames,
   headerNameLowerCasedRecord: headerNameLowerCasedRecord$1
 };
 
-const assert$9 = require$$0__default$4["default"];
+const assert$9 = require$$0$4;
 const { kDestroyed: kDestroyed$1, kBodyUsed: kBodyUsed$1 } = symbols$4;
-const { IncomingMessage } = require$$2__default["default"];
-const stream$1 = require$$0__default$5["default"];
-const net$2 = require$$0__default$6["default"];
+const { IncomingMessage } = require$$2;
+const stream$1 = require$$0$6;
+const net$2 = require$$0$5;
 const { InvalidArgumentError: InvalidArgumentError$l } = errors$1;
-const { Blob: Blob$2 } = require$$7__default["default"];
-const nodeUtil = require$$1__default["default"];
-const { stringify } = require$$8__default["default"];
+const { Blob: Blob$2 } = require$$7;
+const nodeUtil = require$$1;
+const { stringify } = require$$8;
 const { headerNameLowerCasedRecord } = constants$5;
 
 const [nodeMajor, nodeMinor] = process.versions.node.split('.').map(v => Number(v));
@@ -1407,7 +1374,7 @@ async function * convertIterableToBuffer (iterable) {
 let ReadableStream;
 function ReadableStreamFrom$1 (iterable) {
   if (!ReadableStream) {
-    ReadableStream = require$$14__default["default"].ReadableStream;
+    ReadableStream = require$$14.ReadableStream;
   }
 
   if (ReadableStream.from) {
@@ -1681,8 +1648,8 @@ function requireSbmh () {
 	 * Based heavily on the Streaming Boyer-Moore-Horspool C++ implementation
 	 * by Hongli Lai at: https://github.com/FooBarWidget/boyer-moore-horspool
 	 */
-	const EventEmitter = require$$0__default$3["default"].EventEmitter;
-	const inherits = require$$1__default["default"].inherits;
+	const EventEmitter = require$$0$3.EventEmitter;
+	const inherits = require$$1.inherits;
 
 	function SBMH (needle) {
 	  if (typeof needle === 'string') {
@@ -1891,8 +1858,8 @@ function requirePartStream () {
 	if (hasRequiredPartStream) return PartStream_1;
 	hasRequiredPartStream = 1;
 
-	const inherits = require$$1__default["default"].inherits;
-	const ReadableStream = require$$0__default$5["default"].Readable;
+	const inherits = require$$1.inherits;
+	const ReadableStream = require$$0$6.Readable;
 
 	function PartStream (opts) {
 	  ReadableStream.call(this, opts);
@@ -1936,8 +1903,8 @@ function requireHeaderParser () {
 	if (hasRequiredHeaderParser) return HeaderParser_1;
 	hasRequiredHeaderParser = 1;
 
-	const EventEmitter = require$$0__default$3["default"].EventEmitter;
-	const inherits = require$$1__default["default"].inherits;
+	const EventEmitter = require$$0$3.EventEmitter;
+	const inherits = require$$1.inherits;
 	const getLimit = requireGetLimit();
 
 	const StreamSearch = requireSbmh();
@@ -2044,8 +2011,8 @@ function requireDicer () {
 	if (hasRequiredDicer) return Dicer_1;
 	hasRequiredDicer = 1;
 
-	const WritableStream = require$$0__default$5["default"].Writable;
-	const inherits = require$$1__default["default"].inherits;
+	const WritableStream = require$$0$6.Writable;
+	const inherits = require$$1.inherits;
 
 	const StreamSearch = requireSbmh();
 
@@ -2615,8 +2582,8 @@ function requireMultipart () {
 	//  * support limits.fieldNameSize
 	//     -- this will require modifications to utils.parseParams
 
-	const { Readable } = require$$0__default$5["default"];
-	const { inherits } = require$$1__default["default"];
+	const { Readable } = require$$0$6;
+	const { inherits } = require$$1;
 
 	const Dicer = requireDicer();
 
@@ -3181,8 +3148,8 @@ function requireMain () {
 	if (hasRequiredMain) return main$1.exports;
 	hasRequiredMain = 1;
 
-	const WritableStream = require$$0__default$5["default"].Writable;
-	const { inherits } = require$$1__default["default"];
+	const WritableStream = require$$0$6.Writable;
+	const { inherits } = require$$1;
 	const Dicer = requireDicer();
 
 	const MultipartParser = requireMultipart();
@@ -3274,7 +3241,7 @@ function requireConstants$3 () {
 	if (hasRequiredConstants$3) return constants$4;
 	hasRequiredConstants$3 = 1;
 
-	const { MessageChannel, receiveMessageOnPort } = require$$0__default$7["default"];
+	const { MessageChannel, receiveMessageOnPort } = require$$0$7;
 
 	const corsSafeListedMethods = ['GET', 'HEAD', 'POST'];
 	const corsSafeListedMethodsSet = new Set(corsSafeListedMethods);
@@ -3483,10 +3450,10 @@ function requireUtil$4 () {
 
 	const { redirectStatusSet, referrerPolicySet: referrerPolicyTokens, badPortsSet } = requireConstants$3();
 	const { getGlobalOrigin } = requireGlobal();
-	const { performance } = require$$2__default$1["default"];
+	const { performance } = require$$2$1;
 	const { isBlobLike, toUSVString, ReadableStreamFrom } = util$j;
-	const assert = require$$0__default$4["default"];
-	const { isUint8Array } = require$$5__default["default"];
+	const assert = require$$0$4;
+	const { isUint8Array } = require$$5;
 
 	let supportedHashes = [];
 
@@ -4447,7 +4414,7 @@ function requireUtil$4 () {
 
 	function isReadableStreamLike (stream) {
 	  if (!ReadableStream) {
-	    ReadableStream = require$$14__default["default"].ReadableStream;
+	    ReadableStream = require$$14.ReadableStream;
 	  }
 
 	  return stream instanceof ReadableStream || (
@@ -4650,7 +4617,7 @@ function requireWebidl () {
 	if (hasRequiredWebidl) return webidl_1;
 	hasRequiredWebidl = 1;
 
-	const { types } = require$$1__default["default"];
+	const { types } = require$$1;
 	const { hasOwn, toUSVString } = requireUtil$4();
 
 	/** @type {import('../../types/webidl').Webidl} */
@@ -5303,8 +5270,8 @@ var hasRequiredDataURL;
 function requireDataURL () {
 	if (hasRequiredDataURL) return dataURL;
 	hasRequiredDataURL = 1;
-	const assert = require$$0__default$4["default"];
-	const { atob } = require$$7__default["default"];
+	const assert = require$$0$4;
+	const { atob } = require$$7;
 	const { isomorphicDecode } = requireUtil$4();
 
 	const encoder = new TextEncoder();
@@ -5940,8 +5907,8 @@ function requireFile () {
 	if (hasRequiredFile) return file;
 	hasRequiredFile = 1;
 
-	const { Blob, File: NativeFile } = require$$7__default["default"];
-	const { types } = require$$1__default["default"];
+	const { Blob, File: NativeFile } = require$$7;
+	const { types } = require$$1;
 	const { kState } = requireSymbols$3();
 	const { isBlobLike } = requireUtil$4();
 	const { webidl } = requireWebidl();
@@ -6296,7 +6263,7 @@ function requireFormdata () {
 	const { kState } = requireSymbols$3();
 	const { File: UndiciFile, FileLike, isFileLike } = requireFile();
 	const { webidl } = requireWebidl();
-	const { Blob, File: NativeFile } = require$$7__default["default"];
+	const { Blob, File: NativeFile } = require$$7;
 
 	/** @type {globalThis['File']} */
 	const File = NativeFile ?? UndiciFile;
@@ -6579,11 +6546,11 @@ function requireBody () {
 	const { kState } = requireSymbols$3();
 	const { webidl } = requireWebidl();
 	const { DOMException, structuredClone } = requireConstants$3();
-	const { Blob, File: NativeFile } = require$$7__default["default"];
+	const { Blob, File: NativeFile } = require$$7;
 	const { kBodyUsed } = symbols$4;
-	const assert = require$$0__default$4["default"];
+	const assert = require$$0$4;
 	const { isErrored } = util$j;
-	const { isUint8Array, isArrayBuffer } = require$$5__default["default"];
+	const { isUint8Array, isArrayBuffer } = require$$5;
 	const { File: UndiciFile } = requireFile();
 	const { parseMIMEType, serializeAMimeType } = requireDataURL();
 
@@ -6605,7 +6572,7 @@ function requireBody () {
 	// https://fetch.spec.whatwg.org/#concept-bodyinit-extract
 	function extractBody (object, keepalive = false) {
 	  if (!ReadableStream) {
-	    ReadableStream = require$$14__default["default"].ReadableStream;
+	    ReadableStream = require$$14.ReadableStream;
 	  }
 
 	  // 1. Let stream be null.
@@ -6826,7 +6793,7 @@ function requireBody () {
 	function safelyExtractBody (object, keepalive = false) {
 	  if (!ReadableStream) {
 	    // istanbul ignore next
-	    ReadableStream = require$$14__default["default"].ReadableStream;
+	    ReadableStream = require$$14.ReadableStream;
 	  }
 
 	  // To safely extract a body and a `Content-Type` value from
@@ -7183,7 +7150,7 @@ const {
   InvalidArgumentError: InvalidArgumentError$k,
   NotSupportedError: NotSupportedError$1
 } = errors$1;
-const assert$8 = require$$0__default$4["default"];
+const assert$8 = require$$0$4;
 const { kHTTP2BuildRequest: kHTTP2BuildRequest$1, kHTTP2CopyHeaders: kHTTP2CopyHeaders$1, kHTTP1BuildRequest: kHTTP1BuildRequest$1 } = symbols$4;
 const util$h = util$j;
 
@@ -7229,7 +7196,7 @@ try {
   channels$1.error = { hasSubscribers: false };
 }
 
-class Request$1 {
+let Request$1 = class Request {
   constructor (origin, {
     path,
     method,
@@ -7530,14 +7497,14 @@ class Request$1 {
   static [kHTTP1BuildRequest$1] (origin, opts, handler) {
     // TODO: Migrate header parsing here, to make Requests
     // HTTP agnostic
-    return new Request$1(origin, opts, handler)
+    return new Request(origin, opts, handler)
   }
 
   static [kHTTP2BuildRequest$1] (origin, opts, handler) {
     const headers = opts.headers;
     opts = { ...opts, headers: null };
 
-    const request = new Request$1(origin, opts, handler);
+    const request = new Request(origin, opts, handler);
 
     request.headers = {};
 
@@ -7576,7 +7543,7 @@ class Request$1 {
 
     return headers
   }
-}
+};
 
 function processHeaderValue (key, val, skipAppend) {
   if (val && typeof val === 'object') {
@@ -7677,9 +7644,9 @@ function processHeader (request, key, val, skipAppend = false) {
 
 var request$3 = Request$1;
 
-const EventEmitter = require$$0__default$3["default"];
+const EventEmitter = require$$0$3;
 
-class Dispatcher$3 extends EventEmitter {
+let Dispatcher$3 = class Dispatcher extends EventEmitter {
   dispatch () {
     throw new Error('not implemented')
   }
@@ -7691,7 +7658,7 @@ class Dispatcher$3 extends EventEmitter {
   destroy () {
     throw new Error('not implemented')
   }
-}
+};
 
 var dispatcher = Dispatcher$3;
 
@@ -7709,7 +7676,7 @@ const kOnDestroyed = Symbol('onDestroyed');
 const kOnClosed = Symbol('onClosed');
 const kInterceptedDispatch = Symbol('Intercepted Dispatch');
 
-class DispatcherBase$4 extends Dispatcher$2 {
+let DispatcherBase$4 = class DispatcherBase extends Dispatcher$2 {
   constructor () {
     super();
 
@@ -7882,12 +7849,12 @@ class DispatcherBase$4 extends Dispatcher$2 {
       return false
     }
   }
-}
+};
 
 var dispatcherBase = DispatcherBase$4;
 
-const net$1 = require$$0__default$6["default"];
-const assert$7 = require$$0__default$4["default"];
+const net$1 = require$$0$5;
+const assert$7 = require$$0$4;
 const util$g = util$j;
 const { InvalidArgumentError: InvalidArgumentError$i, ConnectTimeoutError } = errors$1;
 
@@ -7972,7 +7939,7 @@ function buildConnector$4 ({ allowH2, maxCachedSessions, socketPath, timeout, ..
     let socket;
     if (protocol === 'https:') {
       if (!tls) {
-        tls = require$$1__default$1["default"];
+        tls = require$$1$1;
       }
       servername = servername || options.servername || util$g.getServerName(host) || null;
 
@@ -8383,9 +8350,9 @@ function requireConstants$2 () {
 
 const util$f = util$j;
 const { kBodyUsed } = symbols$4;
-const assert$6 = require$$0__default$4["default"];
+const assert$6 = require$$0$4;
 const { InvalidArgumentError: InvalidArgumentError$h } = errors$1;
-const EE = require$$0__default$3["default"];
+const EE = require$$0$3;
 
 const redirectableStatusCodes = [300, 301, 302, 303, 307, 308];
 
@@ -8404,7 +8371,7 @@ class BodyAsyncIterable {
   }
 }
 
-class RedirectHandler$2 {
+let RedirectHandler$2 = class RedirectHandler {
   constructor (dispatch, maxRedirections, opts, handler) {
     if (maxRedirections != null && (!Number.isInteger(maxRedirections) || maxRedirections < 0)) {
       throw new InvalidArgumentError$h('maxRedirections must be a positive number')
@@ -8531,7 +8498,7 @@ class RedirectHandler$2 {
       this.handler.onBodySent(chunk);
     }
   }
-}
+};
 
 function parseLocation (statusCode, headers) {
   if (redirectableStatusCodes.indexOf(statusCode) === -1) {
@@ -8625,10 +8592,10 @@ function requireLlhttp_simdWasm () {
 
 /* global WebAssembly */
 
-const assert$5 = require$$0__default$4["default"];
-const net = require$$0__default$6["default"];
-const http$1 = require$$2__default["default"];
-const { pipeline: pipeline$1 } = require$$0__default$5["default"];
+const assert$5 = require$$0$4;
+const net = require$$0$5;
+const http$1 = require$$2;
+const { pipeline: pipeline$1 } = require$$0$6;
 const util$e = util$j;
 const timers = timers$1;
 const Request = request$3;
@@ -8747,7 +8714,7 @@ try {
 /**
  * @type {import('../types/client').default}
  */
-class Client$4 extends DispatcherBase$3 {
+let Client$4 = class Client extends DispatcherBase$3 {
   /**
    *
    * @param {string|URL} url
@@ -9043,7 +9010,7 @@ class Client$4 extends DispatcherBase$3 {
       resume(this);
     })
   }
-}
+};
 
 function onHttp2SessionError (err) {
   assert$5(err.code !== 'ERR_TLS_CERT_ALTNAME_INVALID');
@@ -11020,7 +10987,7 @@ var fixedQueue = class FixedQueue {
 const { kFree: kFree$1, kConnected: kConnected$4, kPending: kPending$1, kQueued: kQueued$1, kRunning: kRunning$2, kSize: kSize$2 } = symbols$4;
 const kPool = Symbol('pool');
 
-class PoolStats$1 {
+let PoolStats$1 = class PoolStats {
   constructor (pool) {
     this[kPool] = pool;
   }
@@ -11048,7 +11015,7 @@ class PoolStats$1 {
   get size () {
     return this[kPool][kSize$2]
   }
-}
+};
 
 var poolStats = PoolStats$1;
 
@@ -11070,7 +11037,7 @@ const kAddClient$2 = Symbol('add client');
 const kRemoveClient$1 = Symbol('remove client');
 const kStats = Symbol('stats');
 
-class PoolBase$2 extends DispatcherBase$2 {
+let PoolBase$2 = class PoolBase extends DispatcherBase$2 {
   constructor () {
     super();
 
@@ -11234,7 +11201,7 @@ class PoolBase$2 extends DispatcherBase$2 {
       dispatcher.destroyed !== true
     ));
   }
-}
+};
 
 var poolBase = {
   PoolBase: PoolBase$2,
@@ -11268,7 +11235,7 @@ function defaultFactory$3 (origin, opts) {
   return new Client$3(origin, opts)
 }
 
-class Pool$5 extends PoolBase$1 {
+let Pool$5 = class Pool extends PoolBase$1 {
   constructor (origin, {
     connections,
     factory = defaultFactory$3,
@@ -11348,7 +11315,7 @@ class Pool$5 extends PoolBase$1 {
 
     return dispatcher
   }
-}
+};
 
 var pool = Pool$5;
 
@@ -11386,7 +11353,7 @@ function defaultFactory$2 (origin, opts) {
   return new Pool$4(origin, opts)
 }
 
-class BalancedPool$1 extends PoolBase {
+let BalancedPool$1 = class BalancedPool extends PoolBase {
   constructor (upstreams = [], { factory = defaultFactory$2, ...opts } = {}) {
     super();
 
@@ -11537,7 +11504,7 @@ class BalancedPool$1 extends PoolBase {
     this[kIndex] = maxWeightIndex;
     return this[kClients$2][maxWeightIndex]
   }
-}
+};
 
 var balancedPool = BalancedPool$1;
 
@@ -11612,7 +11579,7 @@ function defaultFactory$1 (origin, opts) {
     : new Pool$3(origin, opts)
 }
 
-class Agent$4 extends DispatcherBase$1 {
+let Agent$4 = class Agent extends DispatcherBase$1 {
   constructor ({ factory = defaultFactory$1, maxRedirections = 0, connect, ...options } = {}) {
     super();
 
@@ -11731,7 +11698,7 @@ class Agent$4 extends DispatcherBase$1 {
 
     await Promise.all(destroyPromises);
   }
-}
+};
 
 var agent = Agent$4;
 
@@ -11739,8 +11706,8 @@ var api$1 = {};
 
 var apiRequest = {exports: {}};
 
-const assert$4 = require$$0__default$4["default"];
-const { Readable: Readable$2 } = require$$0__default$5["default"];
+const assert$4 = require$$0$4;
+const { Readable: Readable$2 } = require$$0$6;
 const { RequestAbortedError: RequestAbortedError$7, NotSupportedError, InvalidArgumentError: InvalidArgumentError$c } = errors$1;
 const util$b = util$j;
 const { ReadableStreamFrom, toUSVString: toUSVString$1 } = util$j;
@@ -12058,7 +12025,7 @@ function consumeFinish (consume, err) {
   consume.body = null;
 }
 
-const assert$3 = require$$0__default$4["default"];
+const assert$3 = require$$0$4;
 const {
   ResponseStatusCodeError
 } = errors$1;
@@ -12167,7 +12134,7 @@ const {
 } = errors$1;
 const util$9 = util$j;
 const { getResolveErrorBodyCallback: getResolveErrorBodyCallback$1 } = util$a;
-const { AsyncResource: AsyncResource$4 } = require$$4__default["default"];
+const { AsyncResource: AsyncResource$4 } = require$$4;
 const { addSignal: addSignal$4, removeSignal: removeSignal$4 } = abortSignal;
 
 class RequestHandler extends AsyncResource$4 {
@@ -12341,7 +12308,7 @@ apiRequest.exports.RequestHandler = RequestHandler;
 
 var apiRequestExports = apiRequest.exports;
 
-const { finished, PassThrough: PassThrough$1 } = require$$0__default$5["default"];
+const { finished, PassThrough: PassThrough$1 } = require$$0$6;
 const {
   InvalidArgumentError: InvalidArgumentError$a,
   InvalidReturnValueError: InvalidReturnValueError$1,
@@ -12349,7 +12316,7 @@ const {
 } = errors$1;
 const util$8 = util$j;
 const { getResolveErrorBodyCallback } = util$a;
-const { AsyncResource: AsyncResource$3 } = require$$4__default["default"];
+const { AsyncResource: AsyncResource$3 } = require$$4;
 const { addSignal: addSignal$3, removeSignal: removeSignal$3 } = abortSignal;
 
 class StreamHandler extends AsyncResource$3 {
@@ -12564,16 +12531,16 @@ const {
   Readable,
   Duplex,
   PassThrough
-} = require$$0__default$5["default"];
+} = require$$0$6;
 const {
   InvalidArgumentError: InvalidArgumentError$9,
   InvalidReturnValueError,
   RequestAbortedError: RequestAbortedError$3
 } = errors$1;
 const util$7 = util$j;
-const { AsyncResource: AsyncResource$2 } = require$$4__default["default"];
+const { AsyncResource: AsyncResource$2 } = require$$4;
 const { addSignal: addSignal$2, removeSignal: removeSignal$2 } = abortSignal;
-const assert$2 = require$$0__default$4["default"];
+const assert$2 = require$$0$4;
 
 const kResume = Symbol('resume');
 
@@ -12809,10 +12776,10 @@ function pipeline (opts, handler) {
 var apiPipeline = pipeline;
 
 const { InvalidArgumentError: InvalidArgumentError$8, RequestAbortedError: RequestAbortedError$2, SocketError: SocketError$1 } = errors$1;
-const { AsyncResource: AsyncResource$1 } = require$$4__default["default"];
+const { AsyncResource: AsyncResource$1 } = require$$4;
 const util$6 = util$j;
 const { addSignal: addSignal$1, removeSignal: removeSignal$1 } = abortSignal;
-const assert$1 = require$$0__default$4["default"];
+const assert$1 = require$$0$4;
 
 class UpgradeHandler extends AsyncResource$1 {
   constructor (opts, callback) {
@@ -12912,7 +12879,7 @@ function upgrade (opts, callback) {
 
 var apiUpgrade = upgrade;
 
-const { AsyncResource } = require$$4__default["default"];
+const { AsyncResource } = require$$4;
 const { InvalidArgumentError: InvalidArgumentError$7, RequestAbortedError: RequestAbortedError$1, SocketError } = errors$1;
 const util$5 = util$j;
 const { addSignal, removeSignal } = abortSignal;
@@ -13023,15 +12990,15 @@ api$1.connect = apiConnect;
 
 const { UndiciError: UndiciError$1 } = errors$1;
 
-class MockNotMatchedError$1 extends UndiciError$1 {
+let MockNotMatchedError$1 = class MockNotMatchedError extends UndiciError$1 {
   constructor (message) {
     super(message);
-    Error.captureStackTrace(this, MockNotMatchedError$1);
+    Error.captureStackTrace(this, MockNotMatchedError);
     this.name = 'MockNotMatchedError';
     this.message = message || 'The request does not match any registered mock dispatches';
     this.code = 'UND_MOCK_ERR_MOCK_NOT_MATCHED';
   }
-}
+};
 
 var mockErrors$1 = {
   MockNotMatchedError: MockNotMatchedError$1
@@ -13068,12 +13035,12 @@ const {
   kGetNetConnect: kGetNetConnect$1
 } = mockSymbols;
 const { buildURL: buildURL$1, nop } = util$j;
-const { STATUS_CODES } = require$$2__default["default"];
+const { STATUS_CODES } = require$$2;
 const {
   types: {
     isPromise
   }
-} = require$$1__default["default"];
+} = require$$1;
 
 function matchValue$1 (match, value) {
   if (typeof match === 'string') {
@@ -13262,14 +13229,6 @@ function getStatusText (statusCode) {
   return STATUS_CODES[statusCode] || 'unknown'
 }
 
-async function getResponse (body) {
-  const buffers = [];
-  for await (const data of body) {
-    buffers.push(data);
-  }
-  return Buffer.concat(buffers).toString('utf8')
-}
-
 /**
  * Mock dispatch function used to simulate undici dispatches
  */
@@ -13394,20 +13353,11 @@ function buildMockOptions$1 (opts) {
 
 var mockUtils = {
   getResponseData: getResponseData$2,
-  getMockDispatch,
   addMockDispatch: addMockDispatch$1,
-  deleteMockDispatch,
   buildKey: buildKey$1,
-  generateKeyValues,
   matchValue: matchValue$1,
-  getResponse,
-  getStatusText,
-  mockDispatch,
   buildMockDispatch: buildMockDispatch$2,
-  checkNetConnect,
-  buildMockOptions: buildMockOptions$1,
-  getHeaderByName
-};
+  buildMockOptions: buildMockOptions$1};
 
 var mockInterceptor = {};
 
@@ -13467,7 +13417,7 @@ class MockScope {
 /**
  * Defines an interceptor for a Mock
  */
-class MockInterceptor$2 {
+let MockInterceptor$2 = class MockInterceptor {
   constructor (opts, mockDispatches) {
     if (typeof opts !== 'object') {
       throw new InvalidArgumentError$6('opts must be an object')
@@ -13611,12 +13561,12 @@ class MockInterceptor$2 {
     this[kContentLength] = true;
     return this
   }
-}
+};
 
 mockInterceptor.MockInterceptor = MockInterceptor$2;
 mockInterceptor.MockScope = MockScope;
 
-const { promisify: promisify$1 } = require$$1__default["default"];
+const { promisify: promisify$1 } = require$$1;
 const Client$1 = client;
 const { buildMockDispatch: buildMockDispatch$1 } = mockUtils;
 const {
@@ -13635,7 +13585,7 @@ const { InvalidArgumentError: InvalidArgumentError$5 } = errors$1;
 /**
  * MockClient provides an API that extends the Client to influence the mockDispatches.
  */
-class MockClient$2 extends Client$1 {
+let MockClient$2 = class MockClient extends Client$1 {
   constructor (origin, opts) {
     super(origin, opts);
 
@@ -13670,11 +13620,11 @@ class MockClient$2 extends Client$1 {
     this[kConnected$1] = 0;
     this[kMockAgent$1][Symbols$1.kClients].delete(this[kOrigin$1]);
   }
-}
+};
 
 var mockClient = MockClient$2;
 
-const { promisify } = require$$1__default["default"];
+const { promisify } = require$$1;
 const Pool$2 = pool;
 const { buildMockDispatch } = mockUtils;
 const {
@@ -13693,7 +13643,7 @@ const { InvalidArgumentError: InvalidArgumentError$4 } = errors$1;
 /**
  * MockPool provides an API that extends the Pool to influence the mockDispatches.
  */
-class MockPool$2 extends Pool$2 {
+let MockPool$2 = class MockPool extends Pool$2 {
   constructor (origin, opts) {
     super(origin, opts);
 
@@ -13728,7 +13678,7 @@ class MockPool$2 extends Pool$2 {
     this[kConnected] = 0;
     this[kMockAgent][Symbols.kClients].delete(this[kOrigin]);
   }
-}
+};
 
 var mockPool = MockPool$2;
 
@@ -13760,8 +13710,8 @@ var pluralizer = class Pluralizer {
   }
 };
 
-const { Transform } = require$$0__default$5["default"];
-const { Console } = require$$1__default$2["default"];
+const { Transform } = require$$0$6;
+const { Console } = require$$1$2;
 
 /**
  * Gets the output of `console.table(…)` as a string.
@@ -13830,7 +13780,7 @@ class FakeWeakRef {
   }
 }
 
-class MockAgent$1 extends Dispatcher$1 {
+let MockAgent$1 = class MockAgent extends Dispatcher$1 {
   constructor (opts) {
     super(opts);
 
@@ -13965,12 +13915,12 @@ ${pluralizer.count} ${pluralizer.noun} ${pluralizer.is} pending:
 ${pendingInterceptorsFormatter.format(pending)}
 `.trim())
   }
-}
+};
 
 var mockAgent = MockAgent$1;
 
 const { kProxy, kClose, kDestroy, kInterceptors } = symbols$4;
-const { URL: URL$1 } = require$$1__default$3["default"];
+const { URL: URL$1 } = require$$1$3;
 const Agent$2 = agent;
 const Pool$1 = pool;
 const DispatcherBase = dispatcherBase;
@@ -14007,7 +13957,7 @@ function defaultFactory (origin, opts) {
   return new Pool$1(origin, opts)
 }
 
-class ProxyAgent$1 extends DispatcherBase {
+let ProxyAgent$1 = class ProxyAgent extends DispatcherBase {
   constructor (opts) {
     super(opts);
     this[kProxy] = buildProxyOptions(opts);
@@ -14116,7 +14066,7 @@ class ProxyAgent$1 extends DispatcherBase {
     await this[kAgent].destroy();
     await this[kClient].destroy();
   }
-}
+};
 
 /**
  * @param {string[] | Record<string, string>} headers
@@ -14157,7 +14107,7 @@ function throwIfProxyAuthIsSent (headers) {
 
 var proxyAgent = ProxyAgent$1;
 
-const assert = require$$0__default$4["default"];
+const assert = require$$0$4;
 
 const { kRetryHandlerDefaultRetry } = symbols$4;
 const { RequestRetryError } = errors$1;
@@ -14170,7 +14120,7 @@ function calculateRetryAfterHeader (retryAfter) {
   return diff
 }
 
-class RetryHandler$1 {
+let RetryHandler$1 = class RetryHandler {
   constructor (opts, handlers) {
     const { retryOptions, ...dispatchOpts } = opts;
     const {
@@ -14193,7 +14143,7 @@ class RetryHandler$1 {
     this.abort = null;
     this.aborted = false;
     this.retryOpts = {
-      retry: retryFn ?? RetryHandler$1[kRetryHandlerDefaultRetry],
+      retry: retryFn ?? RetryHandler[kRetryHandlerDefaultRetry],
       retryAfter: retryAfter ?? true,
       maxTimeout: maxTimeout ?? 30 * 1000, // 30s,
       timeout: minTimeout ?? 500, // .5s
@@ -14490,7 +14440,7 @@ class RetryHandler$1 {
       }
     }
   }
-}
+};
 
 var RetryHandler_1 = RetryHandler$1;
 
@@ -14574,9 +14524,9 @@ function requireHeaders () {
 	  isValidHeaderName,
 	  isValidHeaderValue
 	} = requireUtil$4();
-	const util = require$$1__default["default"];
+	const util = require$$1;
 	const { webidl } = requireWebidl();
-	const assert = require$$0__default$4["default"];
+	const assert = require$$0$4;
 
 	const kHeadersMap = Symbol('headers map');
 	const kHeadersSortedMap = Symbol('headers map sorted');
@@ -15182,10 +15132,10 @@ function requireResponse () {
 	const { getGlobalOrigin } = requireGlobal();
 	const { URLSerializer } = requireDataURL();
 	const { kHeadersList, kConstruct } = symbols$4;
-	const assert = require$$0__default$4["default"];
-	const { types } = require$$1__default["default"];
+	const assert = require$$0$4;
+	const { types } = require$$1;
 
-	const ReadableStream = globalThis.ReadableStream || require$$14__default["default"].ReadableStream;
+	const ReadableStream = globalThis.ReadableStream || require$$14.ReadableStream;
 	const textEncoder = new TextEncoder('utf-8');
 
 	// https://fetch.spec.whatwg.org/#response-class
@@ -15766,8 +15716,8 @@ function requireRequest () {
 	const { getGlobalOrigin } = requireGlobal();
 	const { URLSerializer } = requireDataURL();
 	const { kHeadersList, kConstruct } = symbols$4;
-	const assert = require$$0__default$4["default"];
-	const { getMaxListeners, setMaxListeners, getEventListeners, defaultMaxListeners } = require$$0__default$3["default"];
+	const assert = require$$0$4;
+	const { getMaxListeners, setMaxListeners, getEventListeners, defaultMaxListeners } = require$$0$3;
 
 	let TransformStream = globalThis.TransformStream;
 
@@ -16254,7 +16204,7 @@ function requireRequest () {
 
 	      // 2. Set finalBody to the result of creating a proxy for inputBody.
 	      if (!TransformStream) {
-	        TransformStream = require$$14__default["default"].TransformStream;
+	        TransformStream = require$$14.TransformStream;
 	      }
 
 	      // https://streams.spec.whatwg.org/#readablestream-create-a-proxy
@@ -16700,7 +16650,7 @@ function requireFetch () {
 	} = requireResponse();
 	const { Headers } = requireHeaders();
 	const { Request, makeRequest } = requireRequest();
-	const zlib = require$$3__default$1["default"];
+	const zlib = require$$3$1;
 	const {
 	  bytesMatch,
 	  makePolicyContainer,
@@ -16732,7 +16682,7 @@ function requireFetch () {
 	  urlHasHttpsScheme
 	} = requireUtil$4();
 	const { kState, kHeaders, kGuard, kRealm } = requireSymbols$3();
-	const assert = require$$0__default$4["default"];
+	const assert = require$$0$4;
 	const { safelyExtractBody } = requireBody();
 	const {
 	  redirectStatusSet,
@@ -16743,14 +16693,14 @@ function requireFetch () {
 	  DOMException
 	} = requireConstants$3();
 	const { kHeadersList } = symbols$4;
-	const EE = require$$0__default$3["default"];
-	const { Readable, pipeline } = require$$0__default$5["default"];
+	const EE = require$$0$3;
+	const { Readable, pipeline } = require$$0$6;
 	const { addAbortListener, isErrored, isReadable, nodeMajor, nodeMinor } = util$j;
 	const { dataURLProcessor, serializeAMimeType } = requireDataURL();
-	const { TransformStream } = require$$14__default["default"];
+	const { TransformStream } = require$$14;
 	const { getGlobalDispatcher } = global$1;
 	const { webidl } = requireWebidl();
-	const { STATUS_CODES } = require$$2__default["default"];
+	const { STATUS_CODES } = require$$2;
 	const GET_OR_HEAD = ['GET', 'HEAD'];
 
 	/** @type {import('buffer').resolveObjectURL} */
@@ -17477,7 +17427,7 @@ function requireFetch () {
 	    }
 	    case 'blob:': {
 	      if (!resolveObjectURL) {
-	        resolveObjectURL = require$$7__default["default"].resolveObjectURL;
+	        resolveObjectURL = require$$7.resolveObjectURL;
 	      }
 
 	      // 1. Let blobURLEntry be request’s current URL’s blob URL entry.
@@ -18417,7 +18367,7 @@ function requireFetch () {
 	  // cancelAlgorithm set to cancelAlgorithm, highWaterMark set to
 	  // highWaterMark, and sizeAlgorithm set to sizeAlgorithm.
 	  if (!ReadableStream) {
-	    ReadableStream = require$$14__default["default"].ReadableStream;
+	    ReadableStream = require$$14.ReadableStream;
 	  }
 
 	  const stream = new ReadableStream(
@@ -19184,9 +19134,9 @@ function requireUtil$3 () {
 	const { getEncoding } = requireEncoding();
 	const { DOMException } = requireConstants$3();
 	const { serializeAMimeType, parseMIMEType } = requireDataURL();
-	const { types } = require$$1__default["default"];
-	const { StringDecoder } = require$$6__default["default"];
-	const { btoa } = require$$7__default["default"];
+	const { types } = require$$1;
+	const { StringDecoder } = require$$6;
+	const { btoa } = require$$7;
 
 	/** @type {PropertyDescriptor} */
 	const staticPropertyDescriptors = {
@@ -19938,7 +19888,7 @@ function requireUtil$2 () {
 	if (hasRequiredUtil$2) return util$3;
 	hasRequiredUtil$2 = 1;
 
-	const assert = require$$0__default$4["default"];
+	const assert = require$$0$4;
 	const { URLSerializer } = requireDataURL();
 	const { isValidHeaderName } = requireUtil$4();
 
@@ -20005,7 +19955,7 @@ function requireCache () {
 	const { kState, kHeaders, kGuard, kRealm } = requireSymbols$3();
 	const { fetching } = requireFetch();
 	const { urlIsHttpHttpsScheme, createDeferredPromise, readAllBytes } = requireUtil$4();
-	const assert = require$$0__default$4["default"];
+	const assert = require$$0$4;
 	const { getGlobalDispatcher } = global$1;
 
 	/**
@@ -21298,7 +21248,7 @@ function requireParse () {
 	const { maxNameValuePairSize, maxAttributeValueSize } = requireConstants$1();
 	const { isCTLExcludingHtab } = requireUtil$1();
 	const { collectASequenceOfCodePointsFast } = requireDataURL();
-	const assert = require$$0__default$4["default"];
+	const assert = require$$0$4;
 
 	/**
 	 * @description Parses the field-value attributes of a set-cookie header string.
@@ -21892,7 +21842,7 @@ function requireEvents () {
 
 	const { webidl } = requireWebidl();
 	const { kEnumerableProperty } = util$j;
-	const { MessagePort } = require$$0__default$7["default"];
+	const { MessagePort } = require$$0$7;
 
 	/**
 	 * @see https://html.spec.whatwg.org/multipage/comms.html#messageevent
@@ -22409,7 +22359,7 @@ function requireConnection () {
 	if (hasRequiredConnection) return connection;
 	hasRequiredConnection = 1;
 
-	const diagnosticsChannel = require$$0__default$8["default"];
+	const diagnosticsChannel = require$$0$8;
 	const { uid, states } = requireConstants();
 	const {
 	  kReadyState,
@@ -22789,8 +22739,8 @@ function requireReceiver () {
 	if (hasRequiredReceiver) return receiver;
 	hasRequiredReceiver = 1;
 
-	const { Writable } = require$$0__default$5["default"];
-	const diagnosticsChannel = require$$0__default$8["default"];
+	const { Writable } = require$$0$6;
+	const diagnosticsChannel = require$$0$8;
 	const { parserStates, opcodes, states, emptyBuffer } = requireConstants();
 	const { kReadyState, kSentClose, kResponse, kReceivedClose } = requireSymbols();
 	const { isValidStatusCode, failWebsocketConnection, websocketMessageReceived } = requireUtil();
@@ -23161,7 +23111,7 @@ function requireWebsocket () {
 	const { ByteParser } = requireReceiver();
 	const { kEnumerableProperty, isBlobLike } = util$j;
 	const { getGlobalDispatcher } = global$1;
-	const { types } = require$$1__default["default"];
+	const { types } = require$$1;
 
 	let experimentalWarned = false;
 
@@ -23981,8 +23931,8 @@ var __awaiter$2 = (commonjsGlobal && commonjsGlobal.__awaiter) || function (this
 };
 Object.defineProperty(lib$1, "__esModule", { value: true });
 lib$1.HttpClient = lib$1.isHttps = lib$1.HttpClientResponse = lib$1.HttpClientError = lib$1.getProxyUrl = lib$1.MediaTypes = lib$1.Headers = lib$1.HttpCodes = void 0;
-const http = __importStar$2(require$$2__default["default"]);
-const https = __importStar$2(require$$3__default["default"]);
+const http = __importStar$2(require$$2);
+const https = __importStar$2(require$$3);
 const pm = __importStar$2(proxy);
 const tunnel = __importStar$2(tunnel$1);
 const undici_1$1 = undici;
@@ -24786,8 +24736,8 @@ function requireSummary () {
 		};
 		Object.defineProperty(exports, "__esModule", { value: true });
 		exports.summary = exports.markdownSummary = exports.SUMMARY_DOCS_URL = exports.SUMMARY_ENV_VAR = void 0;
-		const os_1 = require$$0__default["default"];
-		const fs_1 = require$$0__default$2["default"];
+		const os_1 = require$$0;
+		const fs_1 = require$$0$2;
 		const { access, appendFile, writeFile } = fs_1.promises;
 		exports.SUMMARY_ENV_VAR = 'GITHUB_STEP_SUMMARY';
 		exports.SUMMARY_DOCS_URL = 'https://docs.github.com/actions/using-workflows/workflow-commands-for-github-actions#adding-a-job-summary';
@@ -25093,7 +25043,7 @@ function requirePathUtils () {
 	};
 	Object.defineProperty(pathUtils, "__esModule", { value: true });
 	pathUtils.toPlatformPath = pathUtils.toWin32Path = pathUtils.toPosixPath = void 0;
-	const path = __importStar(require$$1__default$4["default"]);
+	const path = __importStar(require$$1$4);
 	/**
 	 * toPosixPath converts the given path to the posix form. On Windows, \\ will be
 	 * replaced with /.
@@ -25179,8 +25129,8 @@ function requireIoUtil () {
 		var _a;
 		Object.defineProperty(exports, "__esModule", { value: true });
 		exports.getCmdPath = exports.tryGetExecutablePath = exports.isRooted = exports.isDirectory = exports.exists = exports.READONLY = exports.UV_FS_O_EXLOCK = exports.IS_WINDOWS = exports.unlink = exports.symlink = exports.stat = exports.rmdir = exports.rm = exports.rename = exports.readlink = exports.readdir = exports.open = exports.mkdir = exports.lstat = exports.copyFile = exports.chmod = void 0;
-		const fs = __importStar(require$$0__default$2["default"]);
-		const path = __importStar(require$$1__default$4["default"]);
+		const fs = __importStar(require$$0$2);
+		const path = __importStar(require$$1$4);
 		_a = fs.promises
 		// export const {open} = 'fs'
 		, exports.chmod = _a.chmod, exports.copyFile = _a.copyFile, exports.lstat = _a.lstat, exports.mkdir = _a.mkdir, exports.open = _a.open, exports.readdir = _a.readdir, exports.readlink = _a.readlink, exports.rename = _a.rename, exports.rm = _a.rm, exports.rmdir = _a.rmdir, exports.stat = _a.stat, exports.symlink = _a.symlink, exports.unlink = _a.unlink;
@@ -25369,8 +25319,8 @@ function requireIo () {
 	};
 	Object.defineProperty(io, "__esModule", { value: true });
 	io.findInPath = io.which = io.mkdirP = io.rmRF = io.mv = io.cp = void 0;
-	const assert_1 = require$$0__default$4["default"];
-	const path = __importStar(require$$1__default$4["default"]);
+	const assert_1 = require$$0$4;
+	const path = __importStar(require$$1$4);
 	const ioUtil = __importStar(requireIoUtil());
 	/**
 	 * Copies a file or folder.
@@ -25675,13 +25625,13 @@ function requireToolrunner () {
 	};
 	Object.defineProperty(toolrunner, "__esModule", { value: true });
 	toolrunner.argStringToArray = toolrunner.ToolRunner = void 0;
-	const os = __importStar(require$$0__default["default"]);
-	const events = __importStar(require$$0__default$3["default"]);
-	const child = __importStar(require$$2__default$2["default"]);
-	const path = __importStar(require$$1__default$4["default"]);
+	const os = __importStar(require$$0);
+	const events = __importStar(require$$0$3);
+	const child = __importStar(require$$2$2);
+	const path = __importStar(require$$1$4);
 	const io = __importStar(requireIo());
 	const ioUtil = __importStar(requireIoUtil());
-	const timers_1 = require$$6__default$1["default"];
+	const timers_1 = require$$6$1;
 	/* eslint-disable @typescript-eslint/unbound-method */
 	const IS_WINDOWS = process.platform === 'win32';
 	/*
@@ -26300,7 +26250,7 @@ function requireExec () {
 	};
 	Object.defineProperty(exec, "__esModule", { value: true });
 	exec.getExecOutput = exec.exec = void 0;
-	const string_decoder_1 = require$$6__default["default"];
+	const string_decoder_1 = require$$6;
 	const tr = __importStar(requireToolrunner());
 	/**
 	 * Exec a command.
@@ -26418,7 +26368,7 @@ function requirePlatform () {
 		};
 		Object.defineProperty(exports, "__esModule", { value: true });
 		exports.getDetails = exports.isLinux = exports.isMacOS = exports.isWindows = exports.arch = exports.platform = void 0;
-		const os_1 = __importDefault(require$$0__default["default"]);
+		const os_1 = __importDefault(require$$0);
 		const exec = __importStar(requireExec());
 		const getWindowsInfo = () => __awaiter(void 0, void 0, void 0, function* () {
 		    const { stdout: version } = yield exec.getExecOutput('powershell -command "(Get-CimInstance -ClassName Win32_OperatingSystem).Version"', undefined, {
@@ -26521,8 +26471,8 @@ function requireCore () {
 		const command_1 = command;
 		const file_command_1 = fileCommand;
 		const utils_1 = utils$3;
-		const os = __importStar(require$$0__default["default"]);
-		const path = __importStar(require$$1__default$4["default"]);
+		const os = __importStar(require$$0);
+		const path = __importStar(require$$1$4);
 		const oidc_utils_1 = requireOidcUtils();
 		/**
 		 * The code to exit an action
@@ -26840,9 +26790,9 @@ var context$1 = {};
 
 Object.defineProperty(context$1, "__esModule", { value: true });
 context$1.Context = void 0;
-const fs_1 = require$$0__default$2["default"];
-const os_1 = require$$0__default["default"];
-class Context$1 {
+const fs_1 = require$$0$2;
+const os_1 = require$$0;
+let Context$1 = class Context {
     /**
      * Hydrate the context from the environment
      */
@@ -26890,7 +26840,7 @@ class Context$1 {
         }
         throw new Error("context.repo requires a GITHUB_REPOSITORY environment variable like 'owner/repo'");
     }
-}
+};
 context$1.Context = Context$1;
 
 var utils$1 = {};
@@ -27644,7 +27594,7 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   // file that has been converted to a CommonJS file using a Babel-
   // compatible transform (i.e. "__esModule" has not been set), then set
   // "default" to the CommonJS "module.exports" for node compatibility.
-  isNodeMode || !mod || !mod.__esModule ? __defProp$6(target, "default", { value: mod, enumerable: true }) : target,
+  !mod || !mod.__esModule ? __defProp$6(target, "default", { value: mod, enumerable: true }) : target,
   mod
 ));
 var __toCommonJS$6 = (mod) => __copyProps$6(__defProp$6({}, "__esModule", { value: true }), mod);
@@ -30964,8 +30914,8 @@ Code licensed under the BSD License:
 http://yuilibrary.com/license/
 */
 
-var fs = require$$0__default$2["default"],
-    path = require$$1__default$4["default"];
+var fs = require$$0$2,
+    path = require$$1$4;
 
 /* istanbul ignore next */
 var exists = fs.exists || path.exists;
@@ -31159,7 +31109,7 @@ function createHref(options, file) {
 	const relative = file.file.replace(options.prefix, '');
 	const parts = relative.split('/');
 	const filename = parts[parts.length - 1];
-	const url = require$$1__default$4["default"].join(
+	const url = require$$1$4.join(
 		options.repository,
 		'blob',
 		options.commit,
@@ -31540,7 +31490,7 @@ async function main() {
 	const token = core.getInput('github-token');
 	const githubClient = getOctokit_1(token).rest;
 	const workingDir = core.getInput('working-directory') || './';
-	const lcovFile = require$$1__default$4["default"].join(
+	const lcovFile = require$$1$4.join(
 		workingDir,
 		core.getInput('lcov-file') || './coverage/lcov.info',
 	);
