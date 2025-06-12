@@ -1,0 +1,15 @@
+{
+	"compilerOptions": {
+		"skipLibCheck": false,
+		"checkJs": true,
+		"allowJs": true,
+		"alwaysStrict": true,
+		"noEmit": true,
+		"types": [
+			"node",
+		]
+	},
+	"exclude": [
+		"node_modules/",
+	]
+}
