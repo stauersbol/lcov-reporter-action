@@ -1,10 +1,9 @@
 import { th, tr, td, table, tbody, a, b, span, fragment } from './html'
 import { createHref, normalisePath } from './util'
-import { LcovFile } from 'lcov-parse'
 
 /**
  *
- * @param {LcovFile[]} lcov
+ * @param {import('lcov-parse').LcovFile[]} lcov
  * @param {*} options
  * @returns
  */
@@ -31,7 +30,7 @@ export function tabulate(lcov, options) {
 		.reduce(
 			(acc, key) => [
 				...acc,
-				toFolder(key, options),
+				toFolder(key),
 				...folders[key].map((file) => toRow(file, key !== '', options)),
 			],
 			[],
@@ -42,7 +41,7 @@ export function tabulate(lcov, options) {
 
 /**
  *
- * @param {LcovFile[]} lcov
+ * @param {import('lcov-parse').LcovFile[]} lcov
  * @param {*} options
  * @returns
  */
@@ -100,10 +99,10 @@ function getStatement(file) {
 function toRow(file, indent, options) {
 	return tr(
 		td(filename(file, indent, options)),
-		td(percentage(getStatement(file), options)),
-		td(percentage(file.branches, options)),
-		td(percentage(file.functions, options)),
-		td(percentage(file.lines, options)),
+		td(percentage(getStatement(file))),
+		td(percentage(file.branches)),
+		td(percentage(file.functions)),
+		td(percentage(file.lines)),
 		td(uncovered(file, options)),
 	)
 }
@@ -151,7 +150,7 @@ function uncovered(file, options) {
 					: `${range.start}&ndash;${range.end}`
 
 			return a({ href: `${href}#${fragment}` }, text)
-		}).sort((a, b) => a - b)
+		}).sort((a, b) => a.localeCompare(b))
 		.join(', ')
 }
 
