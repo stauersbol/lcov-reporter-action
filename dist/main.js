@@ -30142,7 +30142,7 @@ function createHref(options, file) {
 
 /**
  *
- * @param {LcovFile[]} lcov
+ * @param {import('lcov-parse').LcovFile[]} lcov
  * @param {*} options
  * @returns
  */
@@ -30180,7 +30180,7 @@ function tabulate(lcov, options) {
 
 /**
  *
- * @param {LcovFile[]} lcov
+ * @param {import('lcov-parse').LcovFile[]} lcov
  * @param {*} options
  * @returns
  */
@@ -30289,7 +30289,7 @@ function uncovered(file, options) {
 					: `${range.start}&ndash;${range.end}`;
 
 			return a({ href: `${href}#${fragment}` }, text)
-		}).sort((a, b) => a - b)
+		}).sort((a, b) => a.localeCompare(b))
 		.join(', ')
 }
 
@@ -30572,18 +30572,19 @@ async function main() {
 
 	let commentToUpdate;
 	if (shouldDeleteOldComments) {
-		commentToUpdate = await deleteOldComments(
+		await deleteOldComments(
 			githubClient,
 			options,
 			context,
 			shouldUpdateLastComment,
 		);
 	} else if (shouldUpdateLastComment) {
-		commentToUpdate = await getExistingComments(
+		const existingComment = await getExistingComments(
 			githubClient,
 			options,
 			context,
-		).shift();
+		);
+		commentToUpdate = existingComment.shift();
 	}
 	if (context.eventName === 'pull_request' && commentToUpdate) {
 		await githubClient.issues.updateComment({
